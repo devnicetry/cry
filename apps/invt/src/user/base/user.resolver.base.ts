@@ -26,6 +26,10 @@ import { UserFindUniqueArgs } from "./UserFindUniqueArgs";
 import { CreateUserArgs } from "./CreateUserArgs";
 import { UpdateUserArgs } from "./UpdateUserArgs";
 import { DeleteUserArgs } from "./DeleteUserArgs";
+import { WedInvPaymentFindManyArgs } from "../../wedInvPayment/base/WedInvPaymentFindManyArgs";
+import { WedInvPayment } from "../../wedInvPayment/base/WedInvPayment";
+import { WedInvFindManyArgs } from "../../wedInv/base/WedInvFindManyArgs";
+import { WedInv } from "../../wedInv/base/WedInv";
 import { UserService } from "../user.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => User)
@@ -130,5 +134,45 @@ export class UserResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [WedInvPayment], { name: "wedInvPayments" })
+  @nestAccessControl.UseRoles({
+    resource: "WedInvPayment",
+    action: "read",
+    possession: "any",
+  })
+  async findWedInvPayments(
+    @graphql.Parent() parent: User,
+    @graphql.Args() args: WedInvPaymentFindManyArgs
+  ): Promise<WedInvPayment[]> {
+    const results = await this.service.findWedInvPayments(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [WedInv], { name: "wedInvs" })
+  @nestAccessControl.UseRoles({
+    resource: "WedInv",
+    action: "read",
+    possession: "any",
+  })
+  async findWedInvs(
+    @graphql.Parent() parent: User,
+    @graphql.Args() args: WedInvFindManyArgs
+  ): Promise<WedInv[]> {
+    const results = await this.service.findWedInvs(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 }

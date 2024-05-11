@@ -8,13 +8,207 @@ generator client {
 }
 
 model User {
-  createdAt DateTime @default(now())
-  email     String?  @unique
-  firstName String?
-  id        String   @id @default(cuid())
-  lastName  String?
-  password  String
-  roles     Json
-  updatedAt DateTime @updatedAt
-  username  String   @unique
+  createdAt      DateTime        @default(now())
+  email          String?         @unique
+  fullName       String?
+  id             String          @id @default(cuid())
+  password       String
+  roles          Json
+  status         EnumUserStatus?
+  updatedAt      DateTime        @updatedAt
+  username       String          @unique
+  wedInvPayments WedInvPayment[]
+  wedInvs        WedInv[]
+}
+
+model WedInv {
+  createdAt       DateTime          @default(now())
+  id              String            @id @default(cuid())
+  status          EnumWedInvStatus?
+  updatedAt       DateTime          @updatedAt
+  url             String?
+  userId          User?             @relation(fields: [userIdId], references: [id])
+  userIdId        String?
+  wedInvComments  WedInvComment[]
+  wedInvEvents    WedInvEvent[]
+  wedInvGalleries WedInvGallery[]
+  wedInvGifts     WedInvGift[]
+  wedInvPayments  WedInvPayment[]
+  wedInvPresets   WedInvPreset[]
+  wedInvShares    WedInvShare[]
+  wedInvStories   WedInvStory[]
+  wedInvWeddings  WedInvWedding[]
+}
+
+model WedInvEvent {
+  address    String?
+  createdAt  DateTime             @default(now())
+  date       DateTime?
+  eventEnd   String?
+  eventStart String?
+  id         String               @id @default(cuid())
+  maps       String?
+  name       String?
+  place      String?
+  updatedAt  DateTime             @updatedAt
+  wedInvId   WedInv?              @relation(fields: [wedInvIdId], references: [id])
+  wedInvIdId String?
+  zone       EnumWedInvEventZone?
+}
+
+model WedInvStory {
+  createdAt   DateTime  @default(now())
+  date        DateTime?
+  description String?
+  id          String    @id @default(cuid())
+  name        String?
+  photo       String?
+  updatedAt   DateTime  @updatedAt
+  wedInvId    WedInv?   @relation(fields: [wedInvIdId], references: [id])
+  wedInvIdId  String?
+}
+
+model WedInvGallery {
+  createdAt  DateTime @default(now())
+  id         String   @id @default(cuid())
+  name       String?
+  photo      String?
+  updatedAt  DateTime @updatedAt
+  wedInvId   WedInv?  @relation(fields: [wedInvIdId], references: [id])
+  wedInvIdId String?
+}
+
+model WedInvWedding {
+  createdAt  DateTime                 @default(now())
+  father     String?
+  gender     EnumWedInvWeddingGender?
+  id         String                   @id @default(cuid())
+  mother     String?
+  name       String?
+  photo      String?
+  updatedAt  DateTime                 @updatedAt
+  wedInvId   WedInv?                  @relation(fields: [wedInvIdId], references: [id])
+  wedInvIdId String?
+}
+
+model DtGift {
+  createdAt   DateTime            @default(now())
+  giftType    EnumDtGiftGiftType?
+  icon        String?
+  id          String              @id @default(cuid())
+  name        String?
+  updatedAt   DateTime            @updatedAt
+  wedInvGifts WedInvGift[]
+}
+
+model WedInvGift {
+  accountName  String?
+  accountNo    String?
+  accountPhoto String?
+  createdAt    DateTime @default(now())
+  details      String?
+  dtGiftId     DtGift?  @relation(fields: [dtGiftIdId], references: [id])
+  dtGiftIdId   String?
+  id           String   @id @default(cuid())
+  updatedAt    DateTime @updatedAt
+  wedInvId     WedInv?  @relation(fields: [wedInvIdId], references: [id])
+  wedInvIdId   String?
+}
+
+model WedInvShare {
+  createdAt      DateTime        @default(now())
+  frequency      Int?
+  id             String          @id @default(cuid())
+  identity       String?
+  link           String?
+  name           String?
+  open           Boolean?
+  updatedAt      DateTime        @updatedAt
+  wedInvComments WedInvComment[]
+  wedInvId       WedInv?         @relation(fields: [wedInvIdId], references: [id])
+  wedInvIdId     String?
+}
+
+model WedInvComment {
+  comment         String?
+  confirmation    String?
+  createdAt       DateTime     @default(now())
+  id              String       @id @default(cuid())
+  moment          String?
+  name            String?
+  updatedAt       DateTime     @updatedAt
+  wedInvId        WedInv?      @relation(fields: [wedInvIdId], references: [id])
+  wedInvIdId      String?
+  wedInvShareId   WedInvShare? @relation(fields: [wedInvShareIdId], references: [id])
+  wedInvShareIdId String?
+}
+
+model DtPaymentMethod {
+  account        String?
+  accountName    String?
+  accountNo      String?
+  accountType    EnumDtPaymentMethodAccountType?
+  createdAt      DateTime                        @default(now())
+  icon           String?
+  id             String                          @id @default(cuid())
+  updatedAt      DateTime                        @updatedAt
+  wedInvPayments WedInvPayment[]
+}
+
+model WedInvPayment {
+  accountName         String?
+  accountNo           String?
+  amount              Int?
+  createdAt           DateTime         @default(now())
+  dtPaymentMethodId   DtPaymentMethod? @relation(fields: [dtPaymentMethodIdId], references: [id])
+  dtPaymentMethodIdId String?
+  evidence            String?
+  id                  String           @id @default(cuid())
+  noRef               String?
+  updatedAt           DateTime         @updatedAt
+  userId              User?            @relation(fields: [userIdId], references: [id])
+  userIdId            String?
+  wedInvId            WedInv?          @relation(fields: [wedInvIdId], references: [id])
+  wedInvIdId          String?
+}
+
+model WedInvPreset {
+  createdAt  DateTime @default(now())
+  id         String   @id @default(cuid())
+  updatedAt  DateTime @updatedAt
+  wedInvId   WedInv?  @relation(fields: [wedInvIdId], references: [id])
+  wedInvIdId String?
+}
+
+enum EnumUserStatus {
+  Active
+  Nonactive
+}
+
+enum EnumWedInvStatus {
+  Active
+  Nonactive
+}
+
+enum EnumWedInvEventZone {
+  Wib
+  Wita
+  Wit
+}
+
+enum EnumWedInvWeddingGender {
+  Bride
+  Groom
+}
+
+enum EnumDtGiftGiftType {
+  EWallet
+  BankTransfer
+  Qris
+  Shipping
+}
+
+enum EnumDtPaymentMethodAccountType {
+  EWallet
+  BankTransfer
 }

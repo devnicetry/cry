@@ -26,6 +26,12 @@ import { User } from "./User";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserWhereUniqueInput } from "./UserWhereUniqueInput";
 import { UserUpdateInput } from "./UserUpdateInput";
+import { WedInvPaymentFindManyArgs } from "../../wedInvPayment/base/WedInvPaymentFindManyArgs";
+import { WedInvPayment } from "../../wedInvPayment/base/WedInvPayment";
+import { WedInvPaymentWhereUniqueInput } from "../../wedInvPayment/base/WedInvPaymentWhereUniqueInput";
+import { WedInvFindManyArgs } from "../../wedInv/base/WedInvFindManyArgs";
+import { WedInv } from "../../wedInv/base/WedInv";
+import { WedInvWhereUniqueInput } from "../../wedInv/base/WedInvWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -51,10 +57,10 @@ export class UserControllerBase {
       select: {
         createdAt: true,
         email: true,
-        firstName: true,
+        fullName: true,
         id: true,
-        lastName: true,
         roles: true,
+        status: true,
         updatedAt: true,
         username: true,
       },
@@ -80,10 +86,10 @@ export class UserControllerBase {
       select: {
         createdAt: true,
         email: true,
-        firstName: true,
+        fullName: true,
         id: true,
-        lastName: true,
         roles: true,
+        status: true,
         updatedAt: true,
         username: true,
       },
@@ -110,10 +116,10 @@ export class UserControllerBase {
       select: {
         createdAt: true,
         email: true,
-        firstName: true,
+        fullName: true,
         id: true,
-        lastName: true,
         roles: true,
+        status: true,
         updatedAt: true,
         username: true,
       },
@@ -149,10 +155,10 @@ export class UserControllerBase {
         select: {
           createdAt: true,
           email: true,
-          firstName: true,
+          fullName: true,
           id: true,
-          lastName: true,
           roles: true,
+          status: true,
           updatedAt: true,
           username: true,
         },
@@ -187,10 +193,10 @@ export class UserControllerBase {
         select: {
           createdAt: true,
           email: true,
-          firstName: true,
+          fullName: true,
           id: true,
-          lastName: true,
           roles: true,
+          status: true,
           updatedAt: true,
           username: true,
         },
@@ -203,5 +209,227 @@ export class UserControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/wedInvPayments")
+  @ApiNestedQuery(WedInvPaymentFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "WedInvPayment",
+    action: "read",
+    possession: "any",
+  })
+  async findWedInvPayments(
+    @common.Req() request: Request,
+    @common.Param() params: UserWhereUniqueInput
+  ): Promise<WedInvPayment[]> {
+    const query = plainToClass(WedInvPaymentFindManyArgs, request.query);
+    const results = await this.service.findWedInvPayments(params.id, {
+      ...query,
+      select: {
+        accountName: true,
+        accountNo: true,
+        amount: true,
+        createdAt: true,
+
+        dtPaymentMethodId: {
+          select: {
+            id: true,
+          },
+        },
+
+        evidence: true,
+        id: true,
+        noRef: true,
+        updatedAt: true,
+
+        userId: {
+          select: {
+            id: true,
+          },
+        },
+
+        wedInvId: {
+          select: {
+            id: true,
+          },
+        },
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/wedInvPayments")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async connectWedInvPayments(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: WedInvPaymentWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      wedInvPayments: {
+        connect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/wedInvPayments")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async updateWedInvPayments(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: WedInvPaymentWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      wedInvPayments: {
+        set: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/wedInvPayments")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectWedInvPayments(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: WedInvPaymentWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      wedInvPayments: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/wedInvs")
+  @ApiNestedQuery(WedInvFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "WedInv",
+    action: "read",
+    possession: "any",
+  })
+  async findWedInvs(
+    @common.Req() request: Request,
+    @common.Param() params: UserWhereUniqueInput
+  ): Promise<WedInv[]> {
+    const query = plainToClass(WedInvFindManyArgs, request.query);
+    const results = await this.service.findWedInvs(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+        status: true,
+        updatedAt: true,
+        url: true,
+
+        userId: {
+          select: {
+            id: true,
+          },
+        },
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/wedInvs")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async connectWedInvs(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: WedInvWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      wedInvs: {
+        connect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/wedInvs")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async updateWedInvs(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: WedInvWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      wedInvs: {
+        set: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/wedInvs")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectWedInvs(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: WedInvWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      wedInvs: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }
