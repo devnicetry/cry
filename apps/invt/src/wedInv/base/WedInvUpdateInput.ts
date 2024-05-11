@@ -59,7 +59,7 @@ class WedInvUpdateInput {
   @Field(() => UserWhereUniqueInput, {
     nullable: true,
   })
-  userId?: UserWhereUniqueInput | null;
+  user?: UserWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

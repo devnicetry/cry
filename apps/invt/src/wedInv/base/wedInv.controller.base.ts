@@ -78,9 +78,9 @@ export class WedInvControllerBase {
       data: {
         ...data,
 
-        userId: data.userId
+        user: data.user
           ? {
-              connect: data.userId,
+              connect: data.user,
             }
           : undefined,
       },
@@ -91,7 +91,7 @@ export class WedInvControllerBase {
         updatedAt: true,
         url: true,
 
-        userId: {
+        user: {
           select: {
             id: true,
           },
@@ -123,7 +123,7 @@ export class WedInvControllerBase {
         updatedAt: true,
         url: true,
 
-        userId: {
+        user: {
           select: {
             id: true,
           },
@@ -151,7 +151,7 @@ export class WedInvControllerBase {
         updatedAt: true,
         url: true,
 
-        userId: {
+        user: {
           select: {
             id: true,
           },
@@ -188,9 +188,9 @@ export class WedInvControllerBase {
         data: {
           ...data,
 
-          userId: data.userId
+          user: data.user
             ? {
-                connect: data.userId,
+                connect: data.user,
               }
             : undefined,
         },
@@ -201,7 +201,7 @@ export class WedInvControllerBase {
           updatedAt: true,
           url: true,
 
-          userId: {
+          user: {
             select: {
               id: true,
             },
@@ -242,7 +242,7 @@ export class WedInvControllerBase {
           updatedAt: true,
           url: true,
 
-          userId: {
+          user: {
             select: {
               id: true,
             },

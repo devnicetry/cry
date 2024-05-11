@@ -27,8 +27,8 @@ model WedInv {
   status          EnumWedInvStatus?
   updatedAt       DateTime          @updatedAt
   url             String?
-  userId          User?             @relation(fields: [userIdId], references: [id])
-  userIdId        String?
+  user            User?             @relation(fields: [userId], references: [id])
+  userId          String?
   wedInvComments  WedInvComment[]
   wedInvEvents    WedInvEvent[]
   wedInvGalleries WedInvGallery[]

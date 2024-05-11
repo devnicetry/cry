@@ -27,7 +27,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
         <TextField label="Status" source="status" />
         <DateField source="updatedAt" label="Updated At" />
         <TextField label="Url" source="url" />
-        <ReferenceField label="User_ID" source="user.id" reference="User">
+        <ReferenceField label="User_" source="user.id" reference="User">
           <TextField source={USER_TITLE_FIELD} />
         </ReferenceField>
         <ReferenceManyField

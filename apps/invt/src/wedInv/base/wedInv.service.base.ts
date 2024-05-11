@@ -158,11 +158,11 @@ export class WedInvServiceBase {
       .wedInvWeddings(args);
   }
 
-  async getUserId(parentId: string): Promise<PrismaUser | null> {
+  async getUser(parentId: string): Promise<PrismaUser | null> {
     return this.prisma.wedInv
       .findUnique({
         where: { id: parentId },
       })
-      .userId();
+      .user();
   }
 }

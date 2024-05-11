@@ -60,18 +60,14 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
             </ReferenceField>
           </Datagrid>
         </ReferenceManyField>
-        <ReferenceManyField
-          reference="WedInv"
-          target="userIdId"
-          label="Wed Invs"
-        >
+        <ReferenceManyField reference="WedInv" target="userId" label="Wed Invs">
           <Datagrid rowClick="show">
             <DateField source="createdAt" label="Created At" />
             <TextField label="ID" source="id" />
             <TextField label="Status" source="status" />
             <DateField source="updatedAt" label="Updated At" />
             <TextField label="Url" source="url" />
-            <ReferenceField label="User_ID" source="user.id" reference="User">
+            <ReferenceField label="User_" source="user.id" reference="User">
               <TextField source={USER_TITLE_FIELD} />
             </ReferenceField>
           </Datagrid>

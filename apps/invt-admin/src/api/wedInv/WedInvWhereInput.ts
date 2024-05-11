@@ -15,7 +15,7 @@ export type WedInvWhereInput = {
   id?: StringFilter;
   status?: "Active" | "Nonactive";
   url?: StringNullableFilter;
-  userId?: UserWhereUniqueInput;
+  user?: UserWhereUniqueInput;
   wedInvComments?: WedInvCommentListRelationFilter;
   wedInvEvents?: WedInvEventListRelationFilter;
   wedInvGalleries?: WedInvGalleryListRelationFilter;

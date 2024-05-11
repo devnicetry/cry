@@ -83,7 +83,7 @@ class WedInvOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  userIdId?: SortOrder;
+  userId?: SortOrder;
 }
 
 export { WedInvOrderByInput as WedInvOrderByInput };

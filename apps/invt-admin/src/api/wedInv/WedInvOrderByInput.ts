@@ -6,5 +6,5 @@ export type WedInvOrderByInput = {
   status?: SortOrder;
   updatedAt?: SortOrder;
   url?: SortOrder;
-  userIdId?: SortOrder;
+  userId?: SortOrder;
 };
