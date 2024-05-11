@@ -12,7 +12,7 @@ import { WedInvWeddingCreateNestedManyWithoutWedInvsInput } from "./WedInvWeddin
 export type WedInvCreateInput = {
   status?: "Active" | "Nonactive" | null;
   url?: string | null;
-  userId?: UserWhereUniqueInput | null;
+  user?: UserWhereUniqueInput | null;
   wedInvComments?: WedInvCommentCreateNestedManyWithoutWedInvsInput;
   wedInvEvents?: WedInvEventCreateNestedManyWithoutWedInvsInput;
   wedInvGalleries?: WedInvGalleryCreateNestedManyWithoutWedInvsInput;

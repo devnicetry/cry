@@ -15,7 +15,7 @@ export type WedInv = {
   status?: "Active" | "Nonactive" | null;
   updatedAt: Date;
   url: string | null;
-  userId?: User | null;
+  user?: User | null;
   wedInvComments?: Array<WedInvComment>;
   wedInvEvents?: Array<WedInvEvent>;
   wedInvGalleries?: Array<WedInvGallery>;

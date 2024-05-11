@@ -38,7 +38,7 @@ export const WedInvEdit = (props: EditProps): React.ReactElement => {
           optionValue="value"
         />
         <TextInput label="Url" source="url" />
-        <ReferenceInput source="userId.id" reference="User" label="User_ID">
+        <ReferenceInput source="user.id" reference="User" label="User_">
           <SelectInput optionText={UserTitle} />
         </ReferenceInput>
         <ReferenceArrayInput

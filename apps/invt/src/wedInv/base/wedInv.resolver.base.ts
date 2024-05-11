@@ -106,9 +106,9 @@ export class WedInvResolverBase {
       data: {
         ...args.data,
 
-        userId: args.data.userId
+        user: args.data.user
           ? {
-              connect: args.data.userId,
+              connect: args.data.user,
             }
           : undefined,
       },
@@ -131,9 +131,9 @@ export class WedInvResolverBase {
         data: {
           ...args.data,
 
-          userId: args.data.userId
+          user: args.data.user
             ? {
-                connect: args.data.userId,
+                connect: args.data.user,
               }
             : undefined,
         },
@@ -352,15 +352,15 @@ export class WedInvResolverBase {
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.ResolveField(() => User, {
     nullable: true,
-    name: "userId",
+    name: "user",
   })
   @nestAccessControl.UseRoles({
     resource: "User",
     action: "read",
     possession: "any",
   })
-  async getUserId(@graphql.Parent() parent: WedInv): Promise<User | null> {
-    const result = await this.service.getUserId(parent.id);
+  async getUser(@graphql.Parent() parent: WedInv): Promise<User | null> {
+    const result = await this.service.getUser(parent.id);
 
     if (!result) {
       return null;

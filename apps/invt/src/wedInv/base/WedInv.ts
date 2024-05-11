@@ -86,7 +86,7 @@ class WedInv {
   @ValidateNested()
   @Type(() => User)
   @IsOptional()
-  userId?: User | null;
+  user?: User | null;
 
   @ApiProperty({
     required: false,

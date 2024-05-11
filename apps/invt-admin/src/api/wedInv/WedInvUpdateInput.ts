@@ -12,7 +12,7 @@ import { WedInvWeddingUpdateManyWithoutWedInvsInput } from "./WedInvWeddingUpdat
 export type WedInvUpdateInput = {
   status?: "Active" | "Nonactive" | null;
   url?: string | null;
-  userId?: UserWhereUniqueInput | null;
+  user?: UserWhereUniqueInput | null;
   wedInvComments?: WedInvCommentUpdateManyWithoutWedInvsInput;
   wedInvEvents?: WedInvEventUpdateManyWithoutWedInvsInput;
   wedInvGalleries?: WedInvGalleryUpdateManyWithoutWedInvsInput;

@@ -352,7 +352,7 @@ export class UserControllerBase {
         updatedAt: true,
         url: true,
 
-        userId: {
+        user: {
           select: {
             id: true,
           },
