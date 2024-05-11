@@ -1,5 +1,5 @@
-import { WedInvComment } from "../wedInvComment/WedInvComment";
 import { WedInv } from "../wedInv/WedInv";
+import { WedInvComment } from "../wedInvComment/WedInvComment";
 
 export type WedInvShare = {
   createdAt: Date;
@@ -10,6 +10,6 @@ export type WedInvShare = {
   name: string | null;
   open: boolean | null;
   updatedAt: Date;
+  wedInv?: WedInv | null;
   wedInvComments?: Array<WedInvComment>;
-  wedInvId?: WedInv | null;
 };

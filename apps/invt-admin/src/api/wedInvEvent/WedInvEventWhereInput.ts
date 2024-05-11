@@ -12,6 +12,6 @@ export type WedInvEventWhereInput = {
   maps?: StringNullableFilter;
   name?: StringNullableFilter;
   place?: StringNullableFilter;
-  wedInvId?: WedInvWhereUniqueInput;
+  wedInv?: WedInvWhereUniqueInput;
   zone?: "Wib" | "Wita" | "Wit";
 };

@@ -18,9 +18,9 @@ import {
   IsBoolean,
   ValidateNested,
 } from "class-validator";
-import { WedInvCommentCreateNestedManyWithoutWedInvSharesInput } from "./WedInvCommentCreateNestedManyWithoutWedInvSharesInput";
-import { Type } from "class-transformer";
 import { WedInvWhereUniqueInput } from "../../wedInv/base/WedInvWhereUniqueInput";
+import { Type } from "class-transformer";
+import { WedInvCommentCreateNestedManyWithoutWedInvSharesInput } from "./WedInvCommentCreateNestedManyWithoutWedInvSharesInput";
 
 @InputType()
 class WedInvShareCreateInput {
@@ -81,6 +81,18 @@ class WedInvShareCreateInput {
 
   @ApiProperty({
     required: false,
+    type: () => WedInvWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => WedInvWhereUniqueInput)
+  @IsOptional()
+  @Field(() => WedInvWhereUniqueInput, {
+    nullable: true,
+  })
+  wedInv?: WedInvWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
     type: () => WedInvCommentCreateNestedManyWithoutWedInvSharesInput,
   })
   @ValidateNested()
@@ -90,18 +102,6 @@ class WedInvShareCreateInput {
     nullable: true,
   })
   wedInvComments?: WedInvCommentCreateNestedManyWithoutWedInvSharesInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => WedInvWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => WedInvWhereUniqueInput)
-  @IsOptional()
-  @Field(() => WedInvWhereUniqueInput, {
-    nullable: true,
-  })
-  wedInvId?: WedInvWhereUniqueInput | null;
 }
 
 export { WedInvShareCreateInput as WedInvShareCreateInput };

@@ -8,6 +8,6 @@ export type WedInvEventUpdateInput = {
   maps?: string | null;
   name?: string | null;
   place?: string | null;
-  wedInvId?: WedInvWhereUniqueInput | null;
+  wedInv?: WedInvWhereUniqueInput | null;
   zone?: "Wib" | "Wita" | "Wit" | null;
 };

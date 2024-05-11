@@ -27,7 +27,7 @@ class WedInvPresetCreateInput {
   @Field(() => WedInvWhereUniqueInput, {
     nullable: true,
   })
-  wedInvId?: WedInvWhereUniqueInput | null;
+  wedInv?: WedInvWhereUniqueInput | null;
 }
 
 export { WedInvPresetCreateInput as WedInvPresetCreateInput };

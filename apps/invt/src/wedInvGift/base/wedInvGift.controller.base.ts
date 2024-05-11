@@ -52,15 +52,15 @@ export class WedInvGiftControllerBase {
       data: {
         ...data,
 
-        dtGiftId: data.dtGiftId
+        dtGift: data.dtGift
           ? {
-              connect: data.dtGiftId,
+              connect: data.dtGift,
             }
           : undefined,
 
-        wedInvId: data.wedInvId
+        wedInv: data.wedInv
           ? {
-              connect: data.wedInvId,
+              connect: data.wedInv,
             }
           : undefined,
       },
@@ -71,7 +71,7 @@ export class WedInvGiftControllerBase {
         createdAt: true,
         details: true,
 
-        dtGiftId: {
+        dtGift: {
           select: {
             id: true,
           },
@@ -80,7 +80,7 @@ export class WedInvGiftControllerBase {
         id: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -112,7 +112,7 @@ export class WedInvGiftControllerBase {
         createdAt: true,
         details: true,
 
-        dtGiftId: {
+        dtGift: {
           select: {
             id: true,
           },
@@ -121,7 +121,7 @@ export class WedInvGiftControllerBase {
         id: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -154,7 +154,7 @@ export class WedInvGiftControllerBase {
         createdAt: true,
         details: true,
 
-        dtGiftId: {
+        dtGift: {
           select: {
             id: true,
           },
@@ -163,7 +163,7 @@ export class WedInvGiftControllerBase {
         id: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -200,15 +200,15 @@ export class WedInvGiftControllerBase {
         data: {
           ...data,
 
-          dtGiftId: data.dtGiftId
+          dtGift: data.dtGift
             ? {
-                connect: data.dtGiftId,
+                connect: data.dtGift,
               }
             : undefined,
 
-          wedInvId: data.wedInvId
+          wedInv: data.wedInv
             ? {
-                connect: data.wedInvId,
+                connect: data.wedInv,
               }
             : undefined,
         },
@@ -219,7 +219,7 @@ export class WedInvGiftControllerBase {
           createdAt: true,
           details: true,
 
-          dtGiftId: {
+          dtGift: {
             select: {
               id: true,
             },
@@ -228,7 +228,7 @@ export class WedInvGiftControllerBase {
           id: true,
           updatedAt: true,
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },
@@ -269,7 +269,7 @@ export class WedInvGiftControllerBase {
           createdAt: true,
           details: true,
 
-          dtGiftId: {
+          dtGift: {
             select: {
               id: true,
             },
@@ -278,7 +278,7 @@ export class WedInvGiftControllerBase {
           id: true,
           updatedAt: true,
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },

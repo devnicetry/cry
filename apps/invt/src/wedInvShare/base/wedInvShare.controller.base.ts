@@ -55,9 +55,9 @@ export class WedInvShareControllerBase {
       data: {
         ...data,
 
-        wedInvId: data.wedInvId
+        wedInv: data.wedInv
           ? {
-              connect: data.wedInvId,
+              connect: data.wedInv,
             }
           : undefined,
       },
@@ -71,7 +71,7 @@ export class WedInvShareControllerBase {
         open: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -106,7 +106,7 @@ export class WedInvShareControllerBase {
         open: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -142,7 +142,7 @@ export class WedInvShareControllerBase {
         open: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -179,9 +179,9 @@ export class WedInvShareControllerBase {
         data: {
           ...data,
 
-          wedInvId: data.wedInvId
+          wedInv: data.wedInv
             ? {
-                connect: data.wedInvId,
+                connect: data.wedInv,
               }
             : undefined,
         },
@@ -195,7 +195,7 @@ export class WedInvShareControllerBase {
           open: true,
           updatedAt: true,
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },
@@ -239,7 +239,7 @@ export class WedInvShareControllerBase {
           open: true,
           updatedAt: true,
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },
@@ -280,13 +280,13 @@ export class WedInvShareControllerBase {
         name: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
         },
 
-        wedInvShareId: {
+        wedInvShare: {
           select: {
             id: true,
           },

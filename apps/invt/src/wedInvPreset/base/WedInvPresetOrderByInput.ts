@@ -61,7 +61,7 @@ class WedInvPresetOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 }
 
 export { WedInvPresetOrderByInput as WedInvPresetOrderByInput };

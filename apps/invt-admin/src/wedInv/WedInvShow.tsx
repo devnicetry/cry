@@ -32,7 +32,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
         </ReferenceField>
         <ReferenceManyField
           reference="WedInvComment"
-          target="wedInvIdId"
+          target="wedInvId"
           label="Wed Inv Comments"
         >
           <Datagrid rowClick="show">
@@ -44,14 +44,14 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <TextField label="Name" source="name" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >
               <TextField source={WEDINV_TITLE_FIELD} />
             </ReferenceField>
             <ReferenceField
-              label="Wed Inv Share_ID"
+              label="Wed Inv Share_"
               source="wedinvshare.id"
               reference="WedInvShare"
             >
@@ -61,7 +61,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
         </ReferenceManyField>
         <ReferenceManyField
           reference="WedInvEvent"
-          target="wedInvIdId"
+          target="wedInvId"
           label="Wed Inv Events"
         >
           <Datagrid rowClick="show">
@@ -76,7 +76,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <TextField label="Place" source="place" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >
@@ -87,7 +87,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
         </ReferenceManyField>
         <ReferenceManyField
           reference="WedInvGallery"
-          target="wedInvIdId"
+          target="wedInvId"
           label="Wed Inv Galleries"
         >
           <Datagrid rowClick="show">
@@ -97,7 +97,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <TextField label="Photo" source="photo" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >
@@ -107,7 +107,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
         </ReferenceManyField>
         <ReferenceManyField
           reference="WedInvGift"
-          target="wedInvIdId"
+          target="wedInvId"
           label="Wed Inv Gifts"
         >
           <Datagrid rowClick="show">
@@ -117,7 +117,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <DateField source="createdAt" label="Created At" />
             <TextField label="Details" source="details" />
             <ReferenceField
-              label="DT Gift_ID"
+              label="DT Gift_"
               source="dtgift.id"
               reference="DtGift"
             >
@@ -126,7 +126,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <TextField label="ID" source="id" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >
@@ -136,7 +136,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
         </ReferenceManyField>
         <ReferenceManyField
           reference="WedInvPayment"
-          target="wedInvIdId"
+          target="wedInvId"
           label="Wed Inv Payments"
         >
           <Datagrid rowClick="show">
@@ -145,7 +145,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <TextField label="Amount" source="amount" />
             <DateField source="createdAt" label="Created At" />
             <ReferenceField
-              label="DT Payment Method_ID"
+              label="DT Payment Method_"
               source="dtpaymentmethod.id"
               reference="DtPaymentMethod"
             >
@@ -155,11 +155,11 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <TextField label="ID" source="id" />
             <TextField label="No Ref" source="noRef" />
             <DateField source="updatedAt" label="Updated At" />
-            <ReferenceField label="User_ID" source="user.id" reference="User">
+            <ReferenceField label="User_" source="user.id" reference="User">
               <TextField source={USER_TITLE_FIELD} />
             </ReferenceField>
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >
@@ -169,7 +169,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
         </ReferenceManyField>
         <ReferenceManyField
           reference="WedInvPreset"
-          target="wedInvIdId"
+          target="wedInvId"
           label="Wed Inv Presets"
         >
           <Datagrid rowClick="show">
@@ -177,7 +177,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <TextField label="ID" source="id" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >
@@ -187,7 +187,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
         </ReferenceManyField>
         <ReferenceManyField
           reference="WedInvShare"
-          target="wedInvIdId"
+          target="wedInvId"
           label="Wed Inv Shares"
         >
           <Datagrid rowClick="show">
@@ -200,7 +200,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <BooleanField label="Open" source="open" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >
@@ -210,7 +210,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
         </ReferenceManyField>
         <ReferenceManyField
           reference="WedInvStory"
-          target="wedInvIdId"
+          target="wedInvId"
           label="Wed Inv Stories"
         >
           <Datagrid rowClick="show">
@@ -222,7 +222,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <TextField label="Photo" source="photo" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >
@@ -232,7 +232,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
         </ReferenceManyField>
         <ReferenceManyField
           reference="WedInvWedding"
-          target="wedInvIdId"
+          target="wedInvId"
           label="Wed Inv Weddings"
         >
           <Datagrid rowClick="show">
@@ -245,7 +245,7 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
             <TextField label="Photo" source="photo" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >

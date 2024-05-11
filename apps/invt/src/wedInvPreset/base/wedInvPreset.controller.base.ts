@@ -52,9 +52,9 @@ export class WedInvPresetControllerBase {
       data: {
         ...data,
 
-        wedInvId: data.wedInvId
+        wedInv: data.wedInv
           ? {
-              connect: data.wedInvId,
+              connect: data.wedInv,
             }
           : undefined,
       },
@@ -63,7 +63,7 @@ export class WedInvPresetControllerBase {
         id: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -93,7 +93,7 @@ export class WedInvPresetControllerBase {
         id: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -124,7 +124,7 @@ export class WedInvPresetControllerBase {
         id: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -161,9 +161,9 @@ export class WedInvPresetControllerBase {
         data: {
           ...data,
 
-          wedInvId: data.wedInvId
+          wedInv: data.wedInv
             ? {
-                connect: data.wedInvId,
+                connect: data.wedInv,
               }
             : undefined,
         },
@@ -172,7 +172,7 @@ export class WedInvPresetControllerBase {
           id: true,
           updatedAt: true,
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },
@@ -211,7 +211,7 @@ export class WedInvPresetControllerBase {
           id: true,
           updatedAt: true,
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },

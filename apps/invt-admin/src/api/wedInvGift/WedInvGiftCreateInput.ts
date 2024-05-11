@@ -6,6 +6,6 @@ export type WedInvGiftCreateInput = {
   accountNo?: string | null;
   accountPhoto?: string | null;
   details?: string | null;
-  dtGiftId?: DtGiftWhereUniqueInput | null;
-  wedInvId?: WedInvWhereUniqueInput | null;
+  dtGift?: DtGiftWhereUniqueInput | null;
+  wedInv?: WedInvWhereUniqueInput | null;
 };

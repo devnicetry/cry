@@ -74,7 +74,7 @@ class WedInvGiftWhereInput {
   @Field(() => DtGiftWhereUniqueInput, {
     nullable: true,
   })
-  dtGiftId?: DtGiftWhereUniqueInput;
+  dtGift?: DtGiftWhereUniqueInput;
 
   @ApiProperty({
     required: false,
@@ -97,7 +97,7 @@ class WedInvGiftWhereInput {
   @Field(() => WedInvWhereUniqueInput, {
     nullable: true,
   })
-  wedInvId?: WedInvWhereUniqueInput;
+  wedInv?: WedInvWhereUniqueInput;
 }
 
 export { WedInvGiftWhereInput as WedInvGiftWhereInput };

@@ -62,7 +62,7 @@ class WedInvPaymentUpdateInput {
   @Field(() => DtPaymentMethodWhereUniqueInput, {
     nullable: true,
   })
-  dtPaymentMethodId?: DtPaymentMethodWhereUniqueInput | null;
+  dtPaymentMethod?: DtPaymentMethodWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
@@ -96,7 +96,7 @@ class WedInvPaymentUpdateInput {
   @Field(() => UserWhereUniqueInput, {
     nullable: true,
   })
-  userId?: UserWhereUniqueInput | null;
+  user?: UserWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
@@ -108,7 +108,7 @@ class WedInvPaymentUpdateInput {
   @Field(() => WedInvWhereUniqueInput, {
     nullable: true,
   })
-  wedInvId?: WedInvWhereUniqueInput | null;
+  wedInv?: WedInvWhereUniqueInput | null;
 }
 
 export { WedInvPaymentUpdateInput as WedInvPaymentUpdateInput };

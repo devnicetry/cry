@@ -132,7 +132,7 @@ class WedInvEvent {
   @ValidateNested()
   @Type(() => WedInv)
   @IsOptional()
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
 
   @ApiProperty({
     required: false,

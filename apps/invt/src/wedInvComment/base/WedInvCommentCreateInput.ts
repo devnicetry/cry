@@ -72,7 +72,7 @@ class WedInvCommentCreateInput {
   @Field(() => WedInvWhereUniqueInput, {
     nullable: true,
   })
-  wedInvId?: WedInvWhereUniqueInput | null;
+  wedInv?: WedInvWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
@@ -84,7 +84,7 @@ class WedInvCommentCreateInput {
   @Field(() => WedInvShareWhereUniqueInput, {
     nullable: true,
   })
-  wedInvShareId?: WedInvShareWhereUniqueInput | null;
+  wedInvShare?: WedInvShareWhereUniqueInput | null;
 }
 
 export { WedInvCommentCreateInput as WedInvCommentCreateInput };

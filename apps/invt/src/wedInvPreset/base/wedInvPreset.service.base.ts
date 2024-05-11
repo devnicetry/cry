@@ -53,11 +53,11 @@ export class WedInvPresetServiceBase {
     return this.prisma.wedInvPreset.delete(args);
   }
 
-  async getWedInvId(parentId: string): Promise<PrismaWedInv | null> {
+  async getWedInv(parentId: string): Promise<PrismaWedInv | null> {
     return this.prisma.wedInvPreset
       .findUnique({
         where: { id: parentId },
       })
-      .wedInvId();
+      .wedInv();
   }
 }

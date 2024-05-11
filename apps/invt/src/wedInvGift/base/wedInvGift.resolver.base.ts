@@ -98,15 +98,15 @@ export class WedInvGiftResolverBase {
       data: {
         ...args.data,
 
-        dtGiftId: args.data.dtGiftId
+        dtGift: args.data.dtGift
           ? {
-              connect: args.data.dtGiftId,
+              connect: args.data.dtGift,
             }
           : undefined,
 
-        wedInvId: args.data.wedInvId
+        wedInv: args.data.wedInv
           ? {
-              connect: args.data.wedInvId,
+              connect: args.data.wedInv,
             }
           : undefined,
       },
@@ -129,15 +129,15 @@ export class WedInvGiftResolverBase {
         data: {
           ...args.data,
 
-          dtGiftId: args.data.dtGiftId
+          dtGift: args.data.dtGift
             ? {
-                connect: args.data.dtGiftId,
+                connect: args.data.dtGift,
               }
             : undefined,
 
-          wedInvId: args.data.wedInvId
+          wedInv: args.data.wedInv
             ? {
-                connect: args.data.wedInvId,
+                connect: args.data.wedInv,
               }
             : undefined,
         },
@@ -176,17 +176,17 @@ export class WedInvGiftResolverBase {
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.ResolveField(() => DtGift, {
     nullable: true,
-    name: "dtGiftId",
+    name: "dtGift",
   })
   @nestAccessControl.UseRoles({
     resource: "DtGift",
     action: "read",
     possession: "any",
   })
-  async getDtGiftId(
+  async getDtGift(
     @graphql.Parent() parent: WedInvGift
   ): Promise<DtGift | null> {
-    const result = await this.service.getDtGiftId(parent.id);
+    const result = await this.service.getDtGift(parent.id);
 
     if (!result) {
       return null;
@@ -197,12 +197,12 @@ export class WedInvGiftResolverBase {
   @Public()
   @graphql.ResolveField(() => WedInv, {
     nullable: true,
-    name: "wedInvId",
+    name: "wedInv",
   })
-  async getWedInvId(
+  async getWedInv(
     @graphql.Parent() parent: WedInvGift
   ): Promise<WedInv | null> {
-    const result = await this.service.getWedInvId(parent.id);
+    const result = await this.service.getWedInv(parent.id);
 
     if (!result) {
       return null;

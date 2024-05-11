@@ -25,11 +25,7 @@ export const WedInvGalleryList = (props: ListProps): React.ReactElement => {
         <TextField label="Name" source="name" />
         <TextField label="Photo" source="photo" />
         <DateField source="updatedAt" label="Updated At" />
-        <ReferenceField
-          label="Wed Inv_ID"
-          source="wedinv.id"
-          reference="WedInv"
-        >
+        <ReferenceField label="Wed Inv_" source="wedinv.id" reference="WedInv">
           <TextField source={WEDINV_TITLE_FIELD} />
         </ReferenceField>
       </Datagrid>

@@ -20,8 +20,8 @@ import {
   ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { WedInvComment } from "../../wedInvComment/base/WedInvComment";
 import { WedInv } from "../../wedInv/base/WedInv";
+import { WedInvComment } from "../../wedInvComment/base/WedInvComment";
 
 @ObjectType()
 class WedInvShare {
@@ -106,21 +106,21 @@ class WedInvShare {
 
   @ApiProperty({
     required: false,
+    type: () => WedInv,
+  })
+  @ValidateNested()
+  @Type(() => WedInv)
+  @IsOptional()
+  wedInv?: WedInv | null;
+
+  @ApiProperty({
+    required: false,
     type: () => [WedInvComment],
   })
   @ValidateNested()
   @Type(() => WedInvComment)
   @IsOptional()
   wedInvComments?: Array<WedInvComment>;
-
-  @ApiProperty({
-    required: false,
-    type: () => WedInv,
-  })
-  @ValidateNested()
-  @Type(() => WedInv)
-  @IsOptional()
-  wedInvId?: WedInv | null;
 }
 
 export { WedInvShare as WedInvShare };

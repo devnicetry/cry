@@ -52,9 +52,9 @@ export class WedInvGalleryControllerBase {
       data: {
         ...data,
 
-        wedInvId: data.wedInvId
+        wedInv: data.wedInv
           ? {
-              connect: data.wedInvId,
+              connect: data.wedInv,
             }
           : undefined,
       },
@@ -65,7 +65,7 @@ export class WedInvGalleryControllerBase {
         photo: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -99,7 +99,7 @@ export class WedInvGalleryControllerBase {
         photo: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -132,7 +132,7 @@ export class WedInvGalleryControllerBase {
         photo: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -169,9 +169,9 @@ export class WedInvGalleryControllerBase {
         data: {
           ...data,
 
-          wedInvId: data.wedInvId
+          wedInv: data.wedInv
             ? {
-                connect: data.wedInvId,
+                connect: data.wedInv,
               }
             : undefined,
         },
@@ -182,7 +182,7 @@ export class WedInvGalleryControllerBase {
           photo: true,
           updatedAt: true,
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },
@@ -223,7 +223,7 @@ export class WedInvGalleryControllerBase {
           photo: true,
           updatedAt: true,
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },

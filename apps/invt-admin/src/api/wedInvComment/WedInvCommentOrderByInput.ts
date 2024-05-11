@@ -8,6 +8,6 @@ export type WedInvCommentOrderByInput = {
   moment?: SortOrder;
   name?: SortOrder;
   updatedAt?: SortOrder;
-  wedInvIdId?: SortOrder;
-  wedInvShareIdId?: SortOrder;
+  wedInvId?: SortOrder;
+  wedInvShareId?: SortOrder;
 };

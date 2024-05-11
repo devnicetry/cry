@@ -22,22 +22,18 @@ export const WedInvPaymentEdit = (props: EditProps): React.ReactElement => {
         <TextInput label="Account No" source="accountNo" />
         <NumberInput step={1} label="Amount" source="amount" />
         <ReferenceInput
-          source="dtPaymentMethodId.id"
+          source="dtPaymentMethod.id"
           reference="DtPaymentMethod"
-          label="DT Payment Method_ID"
+          label="DT Payment Method_"
         >
           <SelectInput optionText={DtPaymentMethodTitle} />
         </ReferenceInput>
         <TextInput label="Evidence" source="evidence" />
         <TextInput label="No Ref" source="noRef" />
-        <ReferenceInput source="userId.id" reference="User" label="User_ID">
+        <ReferenceInput source="user.id" reference="User" label="User_">
           <SelectInput optionText={UserTitle} />
         </ReferenceInput>
-        <ReferenceInput
-          source="wedInvId.id"
-          reference="WedInv"
-          label="Wed Inv_ID"
-        >
+        <ReferenceInput source="wedInv.id" reference="WedInv" label="Wed Inv_">
           <SelectInput optionText={WedInvTitle} />
         </ReferenceInput>
       </SimpleForm>

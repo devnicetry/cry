@@ -6,8 +6,8 @@ export type WedInvGiftOrderByInput = {
   accountPhoto?: SortOrder;
   createdAt?: SortOrder;
   details?: SortOrder;
-  dtGiftIdId?: SortOrder;
+  dtGiftId?: SortOrder;
   id?: SortOrder;
   updatedAt?: SortOrder;
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 };

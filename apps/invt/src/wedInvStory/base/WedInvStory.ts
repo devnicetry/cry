@@ -92,7 +92,7 @@ class WedInvStory {
   @ValidateNested()
   @Type(() => WedInv)
   @IsOptional()
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
 }
 
 export { WedInvStory as WedInvStory };

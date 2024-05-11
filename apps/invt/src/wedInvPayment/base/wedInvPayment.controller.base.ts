@@ -52,21 +52,21 @@ export class WedInvPaymentControllerBase {
       data: {
         ...data,
 
-        dtPaymentMethodId: data.dtPaymentMethodId
+        dtPaymentMethod: data.dtPaymentMethod
           ? {
-              connect: data.dtPaymentMethodId,
+              connect: data.dtPaymentMethod,
             }
           : undefined,
 
-        userId: data.userId
+        user: data.user
           ? {
-              connect: data.userId,
+              connect: data.user,
             }
           : undefined,
 
-        wedInvId: data.wedInvId
+        wedInv: data.wedInv
           ? {
-              connect: data.wedInvId,
+              connect: data.wedInv,
             }
           : undefined,
       },
@@ -76,7 +76,7 @@ export class WedInvPaymentControllerBase {
         amount: true,
         createdAt: true,
 
-        dtPaymentMethodId: {
+        dtPaymentMethod: {
           select: {
             id: true,
           },
@@ -87,13 +87,13 @@ export class WedInvPaymentControllerBase {
         noRef: true,
         updatedAt: true,
 
-        userId: {
+        user: {
           select: {
             id: true,
           },
         },
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -126,7 +126,7 @@ export class WedInvPaymentControllerBase {
         amount: true,
         createdAt: true,
 
-        dtPaymentMethodId: {
+        dtPaymentMethod: {
           select: {
             id: true,
           },
@@ -137,13 +137,13 @@ export class WedInvPaymentControllerBase {
         noRef: true,
         updatedAt: true,
 
-        userId: {
+        user: {
           select: {
             id: true,
           },
         },
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -175,7 +175,7 @@ export class WedInvPaymentControllerBase {
         amount: true,
         createdAt: true,
 
-        dtPaymentMethodId: {
+        dtPaymentMethod: {
           select: {
             id: true,
           },
@@ -186,13 +186,13 @@ export class WedInvPaymentControllerBase {
         noRef: true,
         updatedAt: true,
 
-        userId: {
+        user: {
           select: {
             id: true,
           },
         },
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -229,21 +229,21 @@ export class WedInvPaymentControllerBase {
         data: {
           ...data,
 
-          dtPaymentMethodId: data.dtPaymentMethodId
+          dtPaymentMethod: data.dtPaymentMethod
             ? {
-                connect: data.dtPaymentMethodId,
+                connect: data.dtPaymentMethod,
               }
             : undefined,
 
-          userId: data.userId
+          user: data.user
             ? {
-                connect: data.userId,
+                connect: data.user,
               }
             : undefined,
 
-          wedInvId: data.wedInvId
+          wedInv: data.wedInv
             ? {
-                connect: data.wedInvId,
+                connect: data.wedInv,
               }
             : undefined,
         },
@@ -253,7 +253,7 @@ export class WedInvPaymentControllerBase {
           amount: true,
           createdAt: true,
 
-          dtPaymentMethodId: {
+          dtPaymentMethod: {
             select: {
               id: true,
             },
@@ -264,13 +264,13 @@ export class WedInvPaymentControllerBase {
           noRef: true,
           updatedAt: true,
 
-          userId: {
+          user: {
             select: {
               id: true,
             },
           },
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },
@@ -310,7 +310,7 @@ export class WedInvPaymentControllerBase {
           amount: true,
           createdAt: true,
 
-          dtPaymentMethodId: {
+          dtPaymentMethod: {
             select: {
               id: true,
             },
@@ -321,13 +321,13 @@ export class WedInvPaymentControllerBase {
           noRef: true,
           updatedAt: true,
 
-          userId: {
+          user: {
             select: {
               id: true,
             },
           },
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },

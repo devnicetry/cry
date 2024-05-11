@@ -6,5 +6,5 @@ export type WedInvGallery = {
   name: string | null;
   photo: string | null;
   updatedAt: Date;
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
 };

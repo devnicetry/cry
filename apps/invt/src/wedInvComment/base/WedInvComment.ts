@@ -93,7 +93,7 @@ class WedInvComment {
   @ValidateNested()
   @Type(() => WedInv)
   @IsOptional()
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
 
   @ApiProperty({
     required: false,
@@ -102,7 +102,7 @@ class WedInvComment {
   @ValidateNested()
   @Type(() => WedInvShare)
   @IsOptional()
-  wedInvShareId?: WedInvShare | null;
+  wedInvShare?: WedInvShare | null;
 }
 
 export { WedInvComment as WedInvComment };

@@ -9,5 +9,5 @@ export type WedInvShareOrderByInput = {
   name?: SortOrder;
   open?: SortOrder;
   updatedAt?: SortOrder;
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 };

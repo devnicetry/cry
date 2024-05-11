@@ -12,11 +12,7 @@ export const WedInvPresetEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <ReferenceInput
-          source="wedInvId.id"
-          reference="WedInv"
-          label="Wed Inv_ID"
-        >
+        <ReferenceInput source="wedInv.id" reference="WedInv" label="Wed Inv_">
           <SelectInput optionText={WedInvTitle} />
         </ReferenceInput>
       </SimpleForm>

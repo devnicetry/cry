@@ -6,5 +6,5 @@ export type WedInvGalleryOrderByInput = {
   name?: SortOrder;
   photo?: SortOrder;
   updatedAt?: SortOrder;
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 };

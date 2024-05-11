@@ -138,7 +138,7 @@ class WedInvEventOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 
   @ApiProperty({
     required: false,

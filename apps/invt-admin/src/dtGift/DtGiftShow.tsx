@@ -26,7 +26,7 @@ export const DtGiftShow = (props: ShowProps): React.ReactElement => {
         <DateField source="updatedAt" label="Updated At" />
         <ReferenceManyField
           reference="WedInvGift"
-          target="dtGiftIdId"
+          target="dtGiftId"
           label="Wed Inv Gifts"
         >
           <Datagrid rowClick="show">
@@ -36,7 +36,7 @@ export const DtGiftShow = (props: ShowProps): React.ReactElement => {
             <DateField source="createdAt" label="Created At" />
             <TextField label="Details" source="details" />
             <ReferenceField
-              label="DT Gift_ID"
+              label="DT Gift_"
               source="dtgift.id"
               reference="DtGift"
             >
@@ -45,7 +45,7 @@ export const DtGiftShow = (props: ShowProps): React.ReactElement => {
             <TextField label="ID" source="id" />
             <DateField source="updatedAt" label="Updated At" />
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >

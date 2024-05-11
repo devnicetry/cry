@@ -233,7 +233,7 @@ export class DtPaymentMethodControllerBase {
         amount: true,
         createdAt: true,
 
-        dtPaymentMethodId: {
+        dtPaymentMethod: {
           select: {
             id: true,
           },
@@ -244,13 +244,13 @@ export class DtPaymentMethodControllerBase {
         noRef: true,
         updatedAt: true,
 
-        userId: {
+        user: {
           select: {
             id: true,
           },
         },
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },

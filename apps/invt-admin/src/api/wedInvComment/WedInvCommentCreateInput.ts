@@ -6,6 +6,6 @@ export type WedInvCommentCreateInput = {
   confirmation?: string | null;
   moment?: string | null;
   name?: string | null;
-  wedInvId?: WedInvWhereUniqueInput | null;
-  wedInvShareId?: WedInvShareWhereUniqueInput | null;
+  wedInv?: WedInvWhereUniqueInput | null;
+  wedInvShare?: WedInvShareWhereUniqueInput | null;
 };

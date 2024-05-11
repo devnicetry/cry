@@ -18,18 +18,10 @@ export const WedInvGiftCreate = (props: CreateProps): React.ReactElement => {
         <TextInput label="Account No" source="accountNo" />
         <TextInput label="Account Photo" source="accountPhoto" />
         <TextInput label="Details" multiline source="details" />
-        <ReferenceInput
-          source="dtGiftId.id"
-          reference="DtGift"
-          label="DT Gift_ID"
-        >
+        <ReferenceInput source="dtGift.id" reference="DtGift" label="DT Gift_">
           <SelectInput optionText={DtGiftTitle} />
         </ReferenceInput>
-        <ReferenceInput
-          source="wedInvId.id"
-          reference="WedInv"
-          label="Wed Inv_ID"
-        >
+        <ReferenceInput source="wedInv.id" reference="WedInv" label="Wed Inv_">
           <SelectInput optionText={WedInvTitle} />
         </ReferenceInput>
       </SimpleForm>
