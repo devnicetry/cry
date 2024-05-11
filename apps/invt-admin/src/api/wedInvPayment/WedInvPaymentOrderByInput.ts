@@ -5,11 +5,11 @@ export type WedInvPaymentOrderByInput = {
   accountNo?: SortOrder;
   amount?: SortOrder;
   createdAt?: SortOrder;
-  dtPaymentMethodIdId?: SortOrder;
+  dtPaymentMethodId?: SortOrder;
   evidence?: SortOrder;
   id?: SortOrder;
   noRef?: SortOrder;
   updatedAt?: SortOrder;
-  userIdId?: SortOrder;
-  wedInvIdId?: SortOrder;
+  userId?: SortOrder;
+  wedInvId?: SortOrder;
 };

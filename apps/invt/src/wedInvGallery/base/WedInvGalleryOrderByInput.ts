@@ -83,7 +83,7 @@ class WedInvGalleryOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 }
 
 export { WedInvGalleryOrderByInput as WedInvGalleryOrderByInput };

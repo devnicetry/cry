@@ -29,7 +29,7 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
         <TextField label="Username" source="username" />
         <ReferenceManyField
           reference="WedInvPayment"
-          target="userIdId"
+          target="userId"
           label="Wed Inv Payments"
         >
           <Datagrid rowClick="show">
@@ -38,7 +38,7 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
             <TextField label="Amount" source="amount" />
             <DateField source="createdAt" label="Created At" />
             <ReferenceField
-              label="DT Payment Method_ID"
+              label="DT Payment Method_"
               source="dtpaymentmethod.id"
               reference="DtPaymentMethod"
             >
@@ -48,11 +48,11 @@ export const UserShow = (props: ShowProps): React.ReactElement => {
             <TextField label="ID" source="id" />
             <TextField label="No Ref" source="noRef" />
             <DateField source="updatedAt" label="Updated At" />
-            <ReferenceField label="User_ID" source="user.id" reference="User">
+            <ReferenceField label="User_" source="user.id" reference="User">
               <TextField source={USER_TITLE_FIELD} />
             </ReferenceField>
             <ReferenceField
-              label="Wed Inv_ID"
+              label="Wed Inv_"
               source="wedinv.id"
               reference="WedInv"
             >

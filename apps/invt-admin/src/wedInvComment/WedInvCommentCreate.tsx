@@ -18,17 +18,13 @@ export const WedInvCommentCreate = (props: CreateProps): React.ReactElement => {
         <TextInput label="Confirmation" source="confirmation" />
         <TextInput label="Moment" source="moment" />
         <TextInput label="Name" source="name" />
-        <ReferenceInput
-          source="wedInvId.id"
-          reference="WedInv"
-          label="Wed Inv_ID"
-        >
+        <ReferenceInput source="wedInv.id" reference="WedInv" label="Wed Inv_">
           <SelectInput optionText={WedInvTitle} />
         </ReferenceInput>
         <ReferenceInput
-          source="wedInvShareId.id"
+          source="wedInvShare.id"
           reference="WedInvShare"
-          label="Wed Inv Share_ID"
+          label="Wed Inv Share_"
         >
           <SelectInput optionText={WedInvShareTitle} />
         </ReferenceInput>

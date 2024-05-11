@@ -4,5 +4,5 @@ export type WedInvPreset = {
   createdAt: Date;
   id: string;
   updatedAt: Date;
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
 };

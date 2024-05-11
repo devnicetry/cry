@@ -98,15 +98,15 @@ export class WedInvCommentResolverBase {
       data: {
         ...args.data,
 
-        wedInvId: args.data.wedInvId
+        wedInv: args.data.wedInv
           ? {
-              connect: args.data.wedInvId,
+              connect: args.data.wedInv,
             }
           : undefined,
 
-        wedInvShareId: args.data.wedInvShareId
+        wedInvShare: args.data.wedInvShare
           ? {
-              connect: args.data.wedInvShareId,
+              connect: args.data.wedInvShare,
             }
           : undefined,
       },
@@ -129,15 +129,15 @@ export class WedInvCommentResolverBase {
         data: {
           ...args.data,
 
-          wedInvId: args.data.wedInvId
+          wedInv: args.data.wedInv
             ? {
-                connect: args.data.wedInvId,
+                connect: args.data.wedInv,
               }
             : undefined,
 
-          wedInvShareId: args.data.wedInvShareId
+          wedInvShare: args.data.wedInvShare
             ? {
-                connect: args.data.wedInvShareId,
+                connect: args.data.wedInvShare,
               }
             : undefined,
         },
@@ -176,12 +176,12 @@ export class WedInvCommentResolverBase {
   @Public()
   @graphql.ResolveField(() => WedInv, {
     nullable: true,
-    name: "wedInvId",
+    name: "wedInv",
   })
-  async getWedInvId(
+  async getWedInv(
     @graphql.Parent() parent: WedInvComment
   ): Promise<WedInv | null> {
-    const result = await this.service.getWedInvId(parent.id);
+    const result = await this.service.getWedInv(parent.id);
 
     if (!result) {
       return null;
@@ -192,17 +192,17 @@ export class WedInvCommentResolverBase {
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.ResolveField(() => WedInvShare, {
     nullable: true,
-    name: "wedInvShareId",
+    name: "wedInvShare",
   })
   @nestAccessControl.UseRoles({
     resource: "WedInvShare",
     action: "read",
     possession: "any",
   })
-  async getWedInvShareId(
+  async getWedInvShare(
     @graphql.Parent() parent: WedInvComment
   ): Promise<WedInvShare | null> {
-    const result = await this.service.getWedInvShareId(parent.id);
+    const result = await this.service.getWedInvShare(parent.id);
 
     if (!result) {
       return null;

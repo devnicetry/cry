@@ -55,19 +55,19 @@ export class WedInvCommentServiceBase {
     return this.prisma.wedInvComment.delete(args);
   }
 
-  async getWedInvId(parentId: string): Promise<PrismaWedInv | null> {
+  async getWedInv(parentId: string): Promise<PrismaWedInv | null> {
     return this.prisma.wedInvComment
       .findUnique({
         where: { id: parentId },
       })
-      .wedInvId();
+      .wedInv();
   }
 
-  async getWedInvShareId(parentId: string): Promise<PrismaWedInvShare | null> {
+  async getWedInvShare(parentId: string): Promise<PrismaWedInvShare | null> {
     return this.prisma.wedInvComment
       .findUnique({
         where: { id: parentId },
       })
-      .wedInvShareId();
+      .wedInvShare();
   }
 }

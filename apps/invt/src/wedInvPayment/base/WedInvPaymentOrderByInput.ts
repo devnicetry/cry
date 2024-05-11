@@ -72,7 +72,7 @@ class WedInvPaymentOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  dtPaymentMethodIdId?: SortOrder;
+  dtPaymentMethodId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -127,7 +127,7 @@ class WedInvPaymentOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  userIdId?: SortOrder;
+  userId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -138,7 +138,7 @@ class WedInvPaymentOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 }
 
 export { WedInvPaymentOrderByInput as WedInvPaymentOrderByInput };

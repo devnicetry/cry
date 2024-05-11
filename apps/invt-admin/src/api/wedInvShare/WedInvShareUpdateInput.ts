@@ -1,5 +1,5 @@
-import { WedInvCommentUpdateManyWithoutWedInvSharesInput } from "./WedInvCommentUpdateManyWithoutWedInvSharesInput";
 import { WedInvWhereUniqueInput } from "../wedInv/WedInvWhereUniqueInput";
+import { WedInvCommentUpdateManyWithoutWedInvSharesInput } from "./WedInvCommentUpdateManyWithoutWedInvSharesInput";
 
 export type WedInvShareUpdateInput = {
   frequency?: number | null;
@@ -7,6 +7,6 @@ export type WedInvShareUpdateInput = {
   link?: string | null;
   name?: string | null;
   open?: boolean | null;
+  wedInv?: WedInvWhereUniqueInput | null;
   wedInvComments?: WedInvCommentUpdateManyWithoutWedInvSharesInput;
-  wedInvId?: WedInvWhereUniqueInput | null;
 };

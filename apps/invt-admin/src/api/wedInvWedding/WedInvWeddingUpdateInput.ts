@@ -6,5 +6,5 @@ export type WedInvWeddingUpdateInput = {
   mother?: string | null;
   name?: string | null;
   photo?: string | null;
-  wedInvId?: WedInvWhereUniqueInput | null;
+  wedInv?: WedInvWhereUniqueInput | null;
 };

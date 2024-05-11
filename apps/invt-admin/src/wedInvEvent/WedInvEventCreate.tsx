@@ -23,11 +23,7 @@ export const WedInvEventCreate = (props: CreateProps): React.ReactElement => {
         <TextInput label="Maps" source="maps" />
         <TextInput label="Name" source="name" />
         <TextInput label="Place" source="place" />
-        <ReferenceInput
-          source="wedInvId.id"
-          reference="WedInv"
-          label="Wed Inv_ID"
-        >
+        <ReferenceInput source="wedInv.id" reference="WedInv" label="Wed Inv_">
           <SelectInput optionText={WedInvTitle} />
         </ReferenceInput>
         <SelectInput

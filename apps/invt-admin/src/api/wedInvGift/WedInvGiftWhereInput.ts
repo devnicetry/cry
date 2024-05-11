@@ -8,7 +8,7 @@ export type WedInvGiftWhereInput = {
   accountNo?: StringNullableFilter;
   accountPhoto?: StringNullableFilter;
   details?: StringNullableFilter;
-  dtGiftId?: DtGiftWhereUniqueInput;
+  dtGift?: DtGiftWhereUniqueInput;
   id?: StringFilter;
-  wedInvId?: WedInvWhereUniqueInput;
+  wedInv?: WedInvWhereUniqueInput;
 };

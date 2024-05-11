@@ -119,7 +119,7 @@ class WedInvEventWhereInput {
   @Field(() => WedInvWhereUniqueInput, {
     nullable: true,
   })
-  wedInvId?: WedInvWhereUniqueInput;
+  wedInv?: WedInvWhereUniqueInput;
 
   @ApiProperty({
     required: false,

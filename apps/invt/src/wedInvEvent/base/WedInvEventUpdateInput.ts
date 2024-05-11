@@ -111,7 +111,7 @@ class WedInvEventUpdateInput {
   @Field(() => WedInvWhereUniqueInput, {
     nullable: true,
   })
-  wedInvId?: WedInvWhereUniqueInput | null;
+  wedInv?: WedInvWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

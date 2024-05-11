@@ -283,13 +283,13 @@ export class WedInvControllerBase {
         name: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
         },
 
-        wedInvShareId: {
+        wedInvShare: {
           select: {
             id: true,
           },
@@ -397,7 +397,7 @@ export class WedInvControllerBase {
         place: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -502,7 +502,7 @@ export class WedInvControllerBase {
         photo: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -605,7 +605,7 @@ export class WedInvControllerBase {
         createdAt: true,
         details: true,
 
-        dtGiftId: {
+        dtGift: {
           select: {
             id: true,
           },
@@ -614,7 +614,7 @@ export class WedInvControllerBase {
         id: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -716,7 +716,7 @@ export class WedInvControllerBase {
         amount: true,
         createdAt: true,
 
-        dtPaymentMethodId: {
+        dtPaymentMethod: {
           select: {
             id: true,
           },
@@ -727,13 +727,13 @@ export class WedInvControllerBase {
         noRef: true,
         updatedAt: true,
 
-        userId: {
+        user: {
           select: {
             id: true,
           },
         },
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -834,7 +834,7 @@ export class WedInvControllerBase {
         id: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -940,7 +940,7 @@ export class WedInvControllerBase {
         open: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -1045,7 +1045,7 @@ export class WedInvControllerBase {
         photo: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
@@ -1151,7 +1151,7 @@ export class WedInvControllerBase {
         photo: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },

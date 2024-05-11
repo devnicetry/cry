@@ -11,6 +11,6 @@ export type WedInvEvent = {
   name: string | null;
   place: string | null;
   updatedAt: Date;
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
   zone?: "Wib" | "Wita" | "Wit" | null;
 };

@@ -83,7 +83,7 @@ class WedInvGiftOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  dtGiftIdId?: SortOrder;
+  dtGiftId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -116,7 +116,7 @@ class WedInvGiftOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 }
 
 export { WedInvGiftOrderByInput as WedInvGiftOrderByInput };

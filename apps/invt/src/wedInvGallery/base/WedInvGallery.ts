@@ -70,7 +70,7 @@ class WedInvGallery {
   @ValidateNested()
   @Type(() => WedInv)
   @IsOptional()
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
 }
 
 export { WedInvGallery as WedInvGallery };

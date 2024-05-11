@@ -2,8 +2,8 @@ import { IntNullableFilter } from "../../util/IntNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
-import { WedInvCommentListRelationFilter } from "../wedInvComment/WedInvCommentListRelationFilter";
 import { WedInvWhereUniqueInput } from "../wedInv/WedInvWhereUniqueInput";
+import { WedInvCommentListRelationFilter } from "../wedInvComment/WedInvCommentListRelationFilter";
 
 export type WedInvShareWhereInput = {
   frequency?: IntNullableFilter;
@@ -12,6 +12,6 @@ export type WedInvShareWhereInput = {
   link?: StringNullableFilter;
   name?: StringNullableFilter;
   open?: BooleanNullableFilter;
+  wedInv?: WedInvWhereUniqueInput;
   wedInvComments?: WedInvCommentListRelationFilter;
-  wedInvId?: WedInvWhereUniqueInput;
 };

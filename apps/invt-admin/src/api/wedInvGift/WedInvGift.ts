@@ -7,8 +7,8 @@ export type WedInvGift = {
   accountPhoto: string | null;
   createdAt: Date;
   details: string | null;
-  dtGiftId?: DtGift | null;
+  dtGift?: DtGift | null;
   id: string;
   updatedAt: Date;
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
 };

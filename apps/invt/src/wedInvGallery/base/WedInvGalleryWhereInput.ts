@@ -62,7 +62,7 @@ class WedInvGalleryWhereInput {
   @Field(() => WedInvWhereUniqueInput, {
     nullable: true,
   })
-  wedInvId?: WedInvWhereUniqueInput;
+  wedInv?: WedInvWhereUniqueInput;
 }
 
 export { WedInvGalleryWhereInput as WedInvGalleryWhereInput };

@@ -116,7 +116,7 @@ class WedInvWeddingOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 }
 
 export { WedInvWeddingOrderByInput as WedInvWeddingOrderByInput };

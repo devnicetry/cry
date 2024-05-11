@@ -110,7 +110,7 @@ class WedInvWedding {
   @ValidateNested()
   @Type(() => WedInv)
   @IsOptional()
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
 }
 
 export { WedInvWedding as WedInvWedding };

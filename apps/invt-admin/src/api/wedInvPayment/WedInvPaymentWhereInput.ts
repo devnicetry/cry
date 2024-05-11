@@ -9,10 +9,10 @@ export type WedInvPaymentWhereInput = {
   accountName?: StringNullableFilter;
   accountNo?: StringNullableFilter;
   amount?: IntNullableFilter;
-  dtPaymentMethodId?: DtPaymentMethodWhereUniqueInput;
+  dtPaymentMethod?: DtPaymentMethodWhereUniqueInput;
   evidence?: StringNullableFilter;
   id?: StringFilter;
   noRef?: StringNullableFilter;
-  userId?: UserWhereUniqueInput;
-  wedInvId?: WedInvWhereUniqueInput;
+  user?: UserWhereUniqueInput;
+  wedInv?: WedInvWhereUniqueInput;
 };

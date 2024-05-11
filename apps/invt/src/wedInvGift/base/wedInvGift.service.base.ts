@@ -53,19 +53,19 @@ export class WedInvGiftServiceBase {
     return this.prisma.wedInvGift.delete(args);
   }
 
-  async getDtGiftId(parentId: string): Promise<PrismaDtGift | null> {
+  async getDtGift(parentId: string): Promise<PrismaDtGift | null> {
     return this.prisma.wedInvGift
       .findUnique({
         where: { id: parentId },
       })
-      .dtGiftId();
+      .dtGift();
   }
 
-  async getWedInvId(parentId: string): Promise<PrismaWedInv | null> {
+  async getWedInv(parentId: string): Promise<PrismaWedInv | null> {
     return this.prisma.wedInvGift
       .findUnique({
         where: { id: parentId },
       })
-      .wedInvId();
+      .wedInv();
   }
 }

@@ -26,20 +26,12 @@ export const WedInvGiftList = (props: ListProps): React.ReactElement => {
         <TextField label="Account Photo" source="accountPhoto" />
         <DateField source="createdAt" label="Created At" />
         <TextField label="Details" source="details" />
-        <ReferenceField
-          label="DT Gift_ID"
-          source="dtgift.id"
-          reference="DtGift"
-        >
+        <ReferenceField label="DT Gift_" source="dtgift.id" reference="DtGift">
           <TextField source={DTGIFT_TITLE_FIELD} />
         </ReferenceField>
         <TextField label="ID" source="id" />
         <DateField source="updatedAt" label="Updated At" />
-        <ReferenceField
-          label="Wed Inv_ID"
-          source="wedinv.id"
-          reference="WedInv"
-        >
+        <ReferenceField label="Wed Inv_" source="wedinv.id" reference="WedInv">
           <TextField source={WEDINV_TITLE_FIELD} />
         </ReferenceField>
       </Datagrid>

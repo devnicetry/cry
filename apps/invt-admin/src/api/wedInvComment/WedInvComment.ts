@@ -9,6 +9,6 @@ export type WedInvComment = {
   moment: string | null;
   name: string | null;
   updatedAt: Date;
-  wedInvId?: WedInv | null;
-  wedInvShareId?: WedInvShare | null;
+  wedInv?: WedInv | null;
+  wedInvShare?: WedInvShare | null;
 };

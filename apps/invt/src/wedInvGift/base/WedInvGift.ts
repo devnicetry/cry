@@ -77,7 +77,7 @@ class WedInvGift {
   @ValidateNested()
   @Type(() => DtGift)
   @IsOptional()
-  dtGiftId?: DtGift | null;
+  dtGift?: DtGift | null;
 
   @ApiProperty({
     required: true,
@@ -102,7 +102,7 @@ class WedInvGift {
   @ValidateNested()
   @Type(() => WedInv)
   @IsOptional()
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
 }
 
 export { WedInvGift as WedInvGift };

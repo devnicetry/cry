@@ -97,9 +97,9 @@ export class WedInvGalleryResolverBase {
       data: {
         ...args.data,
 
-        wedInvId: args.data.wedInvId
+        wedInv: args.data.wedInv
           ? {
-              connect: args.data.wedInvId,
+              connect: args.data.wedInv,
             }
           : undefined,
       },
@@ -122,9 +122,9 @@ export class WedInvGalleryResolverBase {
         data: {
           ...args.data,
 
-          wedInvId: args.data.wedInvId
+          wedInv: args.data.wedInv
             ? {
-                connect: args.data.wedInvId,
+                connect: args.data.wedInv,
               }
             : undefined,
         },
@@ -163,12 +163,12 @@ export class WedInvGalleryResolverBase {
   @Public()
   @graphql.ResolveField(() => WedInv, {
     nullable: true,
-    name: "wedInvId",
+    name: "wedInv",
   })
-  async getWedInvId(
+  async getWedInv(
     @graphql.Parent() parent: WedInvGallery
   ): Promise<WedInv | null> {
-    const result = await this.service.getWedInvId(parent.id);
+    const result = await this.service.getWedInv(parent.id);
 
     if (!result) {
       return null;

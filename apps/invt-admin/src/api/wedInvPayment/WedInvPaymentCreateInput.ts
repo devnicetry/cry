@@ -6,9 +6,9 @@ export type WedInvPaymentCreateInput = {
   accountName?: string | null;
   accountNo?: string | null;
   amount?: number | null;
-  dtPaymentMethodId?: DtPaymentMethodWhereUniqueInput | null;
+  dtPaymentMethod?: DtPaymentMethodWhereUniqueInput | null;
   evidence?: string | null;
   noRef?: string | null;
-  userId?: UserWhereUniqueInput | null;
-  wedInvId?: WedInvWhereUniqueInput | null;
+  user?: UserWhereUniqueInput | null;
+  wedInv?: WedInvWhereUniqueInput | null;
 };

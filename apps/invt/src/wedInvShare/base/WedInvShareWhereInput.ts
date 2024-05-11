@@ -17,8 +17,8 @@ import { IsOptional, ValidateNested } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
-import { WedInvCommentListRelationFilter } from "../../wedInvComment/base/WedInvCommentListRelationFilter";
 import { WedInvWhereUniqueInput } from "../../wedInv/base/WedInvWhereUniqueInput";
+import { WedInvCommentListRelationFilter } from "../../wedInvComment/base/WedInvCommentListRelationFilter";
 
 @InputType()
 class WedInvShareWhereInput {
@@ -90,6 +90,18 @@ class WedInvShareWhereInput {
 
   @ApiProperty({
     required: false,
+    type: () => WedInvWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => WedInvWhereUniqueInput)
+  @IsOptional()
+  @Field(() => WedInvWhereUniqueInput, {
+    nullable: true,
+  })
+  wedInv?: WedInvWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
     type: () => WedInvCommentListRelationFilter,
   })
   @ValidateNested()
@@ -99,18 +111,6 @@ class WedInvShareWhereInput {
     nullable: true,
   })
   wedInvComments?: WedInvCommentListRelationFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => WedInvWhereUniqueInput,
-  })
-  @ValidateNested()
-  @Type(() => WedInvWhereUniqueInput)
-  @IsOptional()
-  @Field(() => WedInvWhereUniqueInput, {
-    nullable: true,
-  })
-  wedInvId?: WedInvWhereUniqueInput;
 }
 
 export { WedInvShareWhereInput as WedInvShareWhereInput };

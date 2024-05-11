@@ -99,21 +99,21 @@ export class WedInvPaymentResolverBase {
       data: {
         ...args.data,
 
-        dtPaymentMethodId: args.data.dtPaymentMethodId
+        dtPaymentMethod: args.data.dtPaymentMethod
           ? {
-              connect: args.data.dtPaymentMethodId,
+              connect: args.data.dtPaymentMethod,
             }
           : undefined,
 
-        userId: args.data.userId
+        user: args.data.user
           ? {
-              connect: args.data.userId,
+              connect: args.data.user,
             }
           : undefined,
 
-        wedInvId: args.data.wedInvId
+        wedInv: args.data.wedInv
           ? {
-              connect: args.data.wedInvId,
+              connect: args.data.wedInv,
             }
           : undefined,
       },
@@ -136,21 +136,21 @@ export class WedInvPaymentResolverBase {
         data: {
           ...args.data,
 
-          dtPaymentMethodId: args.data.dtPaymentMethodId
+          dtPaymentMethod: args.data.dtPaymentMethod
             ? {
-                connect: args.data.dtPaymentMethodId,
+                connect: args.data.dtPaymentMethod,
               }
             : undefined,
 
-          userId: args.data.userId
+          user: args.data.user
             ? {
-                connect: args.data.userId,
+                connect: args.data.user,
               }
             : undefined,
 
-          wedInvId: args.data.wedInvId
+          wedInv: args.data.wedInv
             ? {
-                connect: args.data.wedInvId,
+                connect: args.data.wedInv,
               }
             : undefined,
         },
@@ -189,17 +189,17 @@ export class WedInvPaymentResolverBase {
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.ResolveField(() => DtPaymentMethod, {
     nullable: true,
-    name: "dtPaymentMethodId",
+    name: "dtPaymentMethod",
   })
   @nestAccessControl.UseRoles({
     resource: "DtPaymentMethod",
     action: "read",
     possession: "any",
   })
-  async getDtPaymentMethodId(
+  async getDtPaymentMethod(
     @graphql.Parent() parent: WedInvPayment
   ): Promise<DtPaymentMethod | null> {
-    const result = await this.service.getDtPaymentMethodId(parent.id);
+    const result = await this.service.getDtPaymentMethod(parent.id);
 
     if (!result) {
       return null;
@@ -210,17 +210,15 @@ export class WedInvPaymentResolverBase {
   @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.ResolveField(() => User, {
     nullable: true,
-    name: "userId",
+    name: "user",
   })
   @nestAccessControl.UseRoles({
     resource: "User",
     action: "read",
     possession: "any",
   })
-  async getUserId(
-    @graphql.Parent() parent: WedInvPayment
-  ): Promise<User | null> {
-    const result = await this.service.getUserId(parent.id);
+  async getUser(@graphql.Parent() parent: WedInvPayment): Promise<User | null> {
+    const result = await this.service.getUser(parent.id);
 
     if (!result) {
       return null;
@@ -231,12 +229,12 @@ export class WedInvPaymentResolverBase {
   @Public()
   @graphql.ResolveField(() => WedInv, {
     nullable: true,
-    name: "wedInvId",
+    name: "wedInv",
   })
-  async getWedInvId(
+  async getWedInv(
     @graphql.Parent() parent: WedInvPayment
   ): Promise<WedInv | null> {
-    const result = await this.service.getWedInvId(parent.id);
+    const result = await this.service.getWedInv(parent.id);
 
     if (!result) {
       return null;

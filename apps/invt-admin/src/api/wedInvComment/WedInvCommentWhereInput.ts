@@ -9,6 +9,6 @@ export type WedInvCommentWhereInput = {
   id?: StringFilter;
   moment?: StringNullableFilter;
   name?: StringNullableFilter;
-  wedInvId?: WedInvWhereUniqueInput;
-  wedInvShareId?: WedInvShareWhereUniqueInput;
+  wedInv?: WedInvWhereUniqueInput;
+  wedInvShare?: WedInvShareWhereUniqueInput;
 };

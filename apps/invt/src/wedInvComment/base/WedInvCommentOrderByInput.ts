@@ -105,7 +105,7 @@ class WedInvCommentOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -116,7 +116,7 @@ class WedInvCommentOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  wedInvShareIdId?: SortOrder;
+  wedInvShareId?: SortOrder;
 }
 
 export { WedInvCommentOrderByInput as WedInvCommentOrderByInput };

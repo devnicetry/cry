@@ -7,11 +7,11 @@ export type WedInvPayment = {
   accountNo: string | null;
   amount: number | null;
   createdAt: Date;
-  dtPaymentMethodId?: DtPaymentMethod | null;
+  dtPaymentMethod?: DtPaymentMethod | null;
   evidence: string | null;
   id: string;
   noRef: string | null;
   updatedAt: Date;
-  userId?: User | null;
-  wedInvId?: WedInv | null;
+  user?: User | null;
+  wedInv?: WedInv | null;
 };

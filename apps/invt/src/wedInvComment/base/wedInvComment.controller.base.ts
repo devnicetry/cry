@@ -52,15 +52,15 @@ export class WedInvCommentControllerBase {
       data: {
         ...data,
 
-        wedInvId: data.wedInvId
+        wedInv: data.wedInv
           ? {
-              connect: data.wedInvId,
+              connect: data.wedInv,
             }
           : undefined,
 
-        wedInvShareId: data.wedInvShareId
+        wedInvShare: data.wedInvShare
           ? {
-              connect: data.wedInvShareId,
+              connect: data.wedInvShare,
             }
           : undefined,
       },
@@ -73,13 +73,13 @@ export class WedInvCommentControllerBase {
         name: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
         },
 
-        wedInvShareId: {
+        wedInvShare: {
           select: {
             id: true,
           },
@@ -115,13 +115,13 @@ export class WedInvCommentControllerBase {
         name: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
         },
 
-        wedInvShareId: {
+        wedInvShare: {
           select: {
             id: true,
           },
@@ -156,13 +156,13 @@ export class WedInvCommentControllerBase {
         name: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
         },
 
-        wedInvShareId: {
+        wedInvShare: {
           select: {
             id: true,
           },
@@ -199,15 +199,15 @@ export class WedInvCommentControllerBase {
         data: {
           ...data,
 
-          wedInvId: data.wedInvId
+          wedInv: data.wedInv
             ? {
-                connect: data.wedInvId,
+                connect: data.wedInv,
               }
             : undefined,
 
-          wedInvShareId: data.wedInvShareId
+          wedInvShare: data.wedInvShare
             ? {
-                connect: data.wedInvShareId,
+                connect: data.wedInvShare,
               }
             : undefined,
         },
@@ -220,13 +220,13 @@ export class WedInvCommentControllerBase {
           name: true,
           updatedAt: true,
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },
           },
 
-          wedInvShareId: {
+          wedInvShare: {
             select: {
               id: true,
             },
@@ -269,13 +269,13 @@ export class WedInvCommentControllerBase {
           name: true,
           updatedAt: true,
 
-          wedInvId: {
+          wedInv: {
             select: {
               id: true,
             },
           },
 
-          wedInvShareId: {
+          wedInvShare: {
             select: {
               id: true,
             },

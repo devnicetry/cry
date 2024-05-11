@@ -20,7 +20,7 @@ export const WedInvPaymentShow = (props: ShowProps): React.ReactElement => {
         <TextField label="Amount" source="amount" />
         <DateField source="createdAt" label="Created At" />
         <ReferenceField
-          label="DT Payment Method_ID"
+          label="DT Payment Method_"
           source="dtpaymentmethod.id"
           reference="DtPaymentMethod"
         >
@@ -30,14 +30,10 @@ export const WedInvPaymentShow = (props: ShowProps): React.ReactElement => {
         <TextField label="ID" source="id" />
         <TextField label="No Ref" source="noRef" />
         <DateField source="updatedAt" label="Updated At" />
-        <ReferenceField label="User_ID" source="user.id" reference="User">
+        <ReferenceField label="User_" source="user.id" reference="User">
           <TextField source={USER_TITLE_FIELD} />
         </ReferenceField>
-        <ReferenceField
-          label="Wed Inv_ID"
-          source="wedinv.id"
-          reference="WedInv"
-        >
+        <ReferenceField label="Wed Inv_" source="wedinv.id" reference="WedInv">
           <TextField source={WEDINV_TITLE_FIELD} />
         </ReferenceField>
       </SimpleShowLayout>

@@ -83,7 +83,7 @@ class WedInvWeddingCreateInput {
   @Field(() => WedInvWhereUniqueInput, {
     nullable: true,
   })
-  wedInvId?: WedInvWhereUniqueInput | null;
+  wedInv?: WedInvWhereUniqueInput | null;
 }
 
 export { WedInvWeddingCreateInput as WedInvWeddingCreateInput };

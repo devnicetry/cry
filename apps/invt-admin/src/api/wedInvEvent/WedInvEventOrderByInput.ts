@@ -11,6 +11,6 @@ export type WedInvEventOrderByInput = {
   name?: SortOrder;
   place?: SortOrder;
   updatedAt?: SortOrder;
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
   zone?: SortOrder;
 };

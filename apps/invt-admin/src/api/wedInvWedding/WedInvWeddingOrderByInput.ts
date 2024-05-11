@@ -9,5 +9,5 @@ export type WedInvWeddingOrderByInput = {
   name?: SortOrder;
   photo?: SortOrder;
   updatedAt?: SortOrder;
-  wedInvIdId?: SortOrder;
+  wedInvId?: SortOrder;
 };

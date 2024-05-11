@@ -39,7 +39,7 @@ class WedInvPresetWhereInput {
   @Field(() => WedInvWhereUniqueInput, {
     nullable: true,
   })
-  wedInvId?: WedInvWhereUniqueInput;
+  wedInv?: WedInvWhereUniqueInput;
 }
 
 export { WedInvPresetWhereInput as WedInvPresetWhereInput };

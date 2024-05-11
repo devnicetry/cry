@@ -7,14 +7,14 @@ import {
   NumberInput,
   TextInput,
   BooleanInput,
-  ReferenceArrayInput,
-  SelectArrayInput,
   ReferenceInput,
   SelectInput,
+  ReferenceArrayInput,
+  SelectArrayInput,
 } from "react-admin";
 
-import { WedInvCommentTitle } from "../wedInvComment/WedInvCommentTitle";
 import { WedInvTitle } from "../wedInv/WedInvTitle";
+import { WedInvCommentTitle } from "../wedInvComment/WedInvCommentTitle";
 
 export const WedInvShareCreate = (props: CreateProps): React.ReactElement => {
   return (
@@ -25,6 +25,9 @@ export const WedInvShareCreate = (props: CreateProps): React.ReactElement => {
         <TextInput label="Link" source="link" />
         <TextInput label="Name" source="name" />
         <BooleanInput label="Open" source="open" />
+        <ReferenceInput source="wedInv.id" reference="WedInv" label="Wed Inv_">
+          <SelectInput optionText={WedInvTitle} />
+        </ReferenceInput>
         <ReferenceArrayInput
           source="wedInvComments"
           reference="WedInvComment"
@@ -33,13 +36,6 @@ export const WedInvShareCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={WedInvCommentTitle} />
         </ReferenceArrayInput>
-        <ReferenceInput
-          source="wedInvId.id"
-          reference="WedInv"
-          label="Wed Inv_ID"
-        >
-          <SelectInput optionText={WedInvTitle} />
-        </ReferenceInput>
       </SimpleForm>
     </Create>
   );

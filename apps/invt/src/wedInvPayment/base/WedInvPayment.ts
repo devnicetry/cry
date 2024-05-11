@@ -73,7 +73,7 @@ class WedInvPayment {
   @ValidateNested()
   @Type(() => DtPaymentMethod)
   @IsOptional()
-  dtPaymentMethodId?: DtPaymentMethod | null;
+  dtPaymentMethod?: DtPaymentMethod | null;
 
   @ApiProperty({
     required: false,
@@ -120,7 +120,7 @@ class WedInvPayment {
   @ValidateNested()
   @Type(() => User)
   @IsOptional()
-  userId?: User | null;
+  user?: User | null;
 
   @ApiProperty({
     required: false,
@@ -129,7 +129,7 @@ class WedInvPayment {
   @ValidateNested()
   @Type(() => WedInv)
   @IsOptional()
-  wedInvId?: WedInv | null;
+  wedInv?: WedInv | null;
 }
 
 export { WedInvPayment as WedInvPayment };

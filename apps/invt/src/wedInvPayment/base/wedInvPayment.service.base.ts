@@ -56,29 +56,29 @@ export class WedInvPaymentServiceBase {
     return this.prisma.wedInvPayment.delete(args);
   }
 
-  async getDtPaymentMethodId(
+  async getDtPaymentMethod(
     parentId: string
   ): Promise<PrismaDtPaymentMethod | null> {
     return this.prisma.wedInvPayment
       .findUnique({
         where: { id: parentId },
       })
-      .dtPaymentMethodId();
+      .dtPaymentMethod();
   }
 
-  async getUserId(parentId: string): Promise<PrismaUser | null> {
+  async getUser(parentId: string): Promise<PrismaUser | null> {
     return this.prisma.wedInvPayment
       .findUnique({
         where: { id: parentId },
       })
-      .userId();
+      .user();
   }
 
-  async getWedInvId(parentId: string): Promise<PrismaWedInv | null> {
+  async getWedInv(parentId: string): Promise<PrismaWedInv | null> {
     return this.prisma.wedInvPayment
       .findUnique({
         where: { id: parentId },
       })
-      .wedInvId();
+      .wedInv();
   }
 }

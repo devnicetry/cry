@@ -9,5 +9,5 @@ export type WedInvStoryWhereInput = {
   id?: StringFilter;
   name?: StringNullableFilter;
   photo?: StringNullableFilter;
-  wedInvId?: WedInvWhereUniqueInput;
+  wedInv?: WedInvWhereUniqueInput;
 };

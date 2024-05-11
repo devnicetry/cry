@@ -220,7 +220,7 @@ export class DtGiftControllerBase {
         createdAt: true,
         details: true,
 
-        dtGiftId: {
+        dtGift: {
           select: {
             id: true,
           },
@@ -229,7 +229,7 @@ export class DtGiftControllerBase {
         id: true,
         updatedAt: true,
 
-        wedInvId: {
+        wedInv: {
           select: {
             id: true,
           },
