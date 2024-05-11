@@ -13,8 +13,11 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, IsEnum, ValidateNested } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
+import { EnumUserStatus } from "./EnumUserStatus";
+import { WedInvPaymentListRelationFilter } from "../../wedInvPayment/base/WedInvPaymentListRelationFilter";
+import { WedInvListRelationFilter } from "../../wedInv/base/WedInvListRelationFilter";
 
 @InputType()
 class UserWhereInput {
@@ -38,7 +41,7 @@ class UserWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  firstName?: StringNullableFilter;
+  fullName?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -53,14 +56,14 @@ class UserWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    enum: EnumUserStatus,
   })
-  @Type(() => StringNullableFilter)
+  @IsEnum(EnumUserStatus)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => EnumUserStatus, {
     nullable: true,
   })
-  lastName?: StringNullableFilter;
+  status?: "Active" | "Nonactive";
 
   @ApiProperty({
     required: false,
@@ -72,6 +75,30 @@ class UserWhereInput {
     nullable: true,
   })
   username?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => WedInvPaymentListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => WedInvPaymentListRelationFilter)
+  @IsOptional()
+  @Field(() => WedInvPaymentListRelationFilter, {
+    nullable: true,
+  })
+  wedInvPayments?: WedInvPaymentListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => WedInvListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => WedInvListRelationFilter)
+  @IsOptional()
+  @Field(() => WedInvListRelationFilter, {
+    nullable: true,
+  })
+  wedInvs?: WedInvListRelationFilter;
 }
 
 export { UserWhereInput as UserWhereInput };

@@ -1,5 +1,17 @@
 import { Module } from "@nestjs/common";
 import { UserModule } from "./user/user.module";
+import { WedInvModule } from "./wedInv/wedInv.module";
+import { WedInvEventModule } from "./wedInvEvent/wedInvEvent.module";
+import { WedInvStoryModule } from "./wedInvStory/wedInvStory.module";
+import { WedInvGalleryModule } from "./wedInvGallery/wedInvGallery.module";
+import { WedInvWeddingModule } from "./wedInvWedding/wedInvWedding.module";
+import { DtGiftModule } from "./dtGift/dtGift.module";
+import { WedInvGiftModule } from "./wedInvGift/wedInvGift.module";
+import { WedInvShareModule } from "./wedInvShare/wedInvShare.module";
+import { WedInvCommentModule } from "./wedInvComment/wedInvComment.module";
+import { DtPaymentMethodModule } from "./dtPaymentMethod/dtPaymentMethod.module";
+import { WedInvPaymentModule } from "./wedInvPayment/wedInvPayment.module";
+import { WedInvPresetModule } from "./wedInvPreset/wedInvPreset.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -18,6 +30,18 @@ import { AuthModule } from "./auth/auth.module";
     ACLModule,
     AuthModule,
     UserModule,
+    WedInvModule,
+    WedInvEventModule,
+    WedInvStoryModule,
+    WedInvGalleryModule,
+    WedInvWeddingModule,
+    DtGiftModule,
+    WedInvGiftModule,
+    WedInvShareModule,
+    WedInvCommentModule,
+    DtPaymentMethodModule,
+    WedInvPaymentModule,
+    WedInvPresetModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

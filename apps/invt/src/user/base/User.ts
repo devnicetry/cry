@@ -11,11 +11,20 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, IsOptional } from "class-validator";
+import {
+  IsDate,
+  IsString,
+  IsOptional,
+  IsEnum,
+  ValidateNested,
+} from "class-validator";
 import { Type } from "class-transformer";
 import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { JsonValue } from "type-fest";
+import { EnumUserStatus } from "./EnumUserStatus";
+import { WedInvPayment } from "../../wedInvPayment/base/WedInvPayment";
+import { WedInv } from "../../wedInv/base/WedInv";
 
 @ObjectType()
 class User {
@@ -47,7 +56,7 @@ class User {
   @Field(() => String, {
     nullable: true,
   })
-  firstName!: string | null;
+  fullName!: string | null;
 
   @ApiProperty({
     required: true,
@@ -58,22 +67,22 @@ class User {
   id!: string;
 
   @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  lastName!: string | null;
-
-  @ApiProperty({
     required: true,
   })
   @IsJSONValue()
   @Field(() => GraphQLJSON)
   roles!: JsonValue;
+
+  @ApiProperty({
+    required: false,
+    enum: EnumUserStatus,
+  })
+  @IsEnum(EnumUserStatus)
+  @IsOptional()
+  @Field(() => EnumUserStatus, {
+    nullable: true,
+  })
+  status?: "Active" | "Nonactive" | null;
 
   @ApiProperty({
     required: true,
@@ -90,6 +99,24 @@ class User {
   @IsString()
   @Field(() => String)
   username!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => [WedInvPayment],
+  })
+  @ValidateNested()
+  @Type(() => WedInvPayment)
+  @IsOptional()
+  wedInvPayments?: Array<WedInvPayment>;
+
+  @ApiProperty({
+    required: false,
+    type: () => [WedInv],
+  })
+  @ValidateNested()
+  @Type(() => WedInv)
+  @IsOptional()
+  wedInvs?: Array<WedInv>;
 }
 
 export { User as User };
