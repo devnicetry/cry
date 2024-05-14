@@ -15,9 +15,16 @@ import {
   WedInvWedding as PrismaWedInvWedding,
   WedInv as PrismaWedInv,
 } from "@prisma/client";
+import { LocalStorageService } from "src/storage/providers/local/local.storage.service";
+import { InputJsonValue } from "src/types";
+import { FileDownload, FileUpload } from "src/storage/base/storage.types";
+import { LocalStorageFile } from "src/storage/providers/local/local.storage.types";
 
 export class WedInvWeddingServiceBase {
-  constructor(protected readonly prisma: PrismaService) {}
+  constructor(
+    protected readonly prisma: PrismaService,
+    protected readonly localStorageService: LocalStorageService
+  ) {}
 
   async count(
     args: Omit<Prisma.WedInvWeddingCountArgs, "select">
@@ -51,6 +58,62 @@ export class WedInvWeddingServiceBase {
     args: Prisma.SelectSubset<T, Prisma.WedInvWeddingDeleteArgs>
   ): Promise<PrismaWedInvWedding> {
     return this.prisma.wedInvWedding.delete(args);
+  }
+
+  async uploadPhoto<T extends Prisma.WedInvWeddingFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.WedInvWeddingFindUniqueArgs>,
+    file: FileUpload
+  ): Promise<PrismaWedInvWedding> {
+    file.filename = `profilePicture-${args.where.id}.${file.filename
+      .split(".")
+      .pop()}`;
+    const containerPath = "/";
+    const photo = await this.localStorageService.uploadFile(
+      file,
+      [],
+      100000,
+      containerPath
+    );
+
+    return await this.prisma.wedInvWedding.update({
+      where: args.where,
+
+      data: {
+        photo: photo as InputJsonValue,
+      },
+    });
+  }
+
+  async downloadPhoto<T extends Prisma.WedInvWeddingFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.WedInvWeddingFindUniqueArgs>
+  ): Promise<FileDownload> {
+    const { photo } = await this.prisma.wedInvWedding.findUniqueOrThrow({
+      where: args.where,
+    });
+
+    return await this.localStorageService.downloadFile(
+      photo as unknown as LocalStorageFile
+    );
+  }
+
+  async deletePhoto<T extends Prisma.WedInvWeddingFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.WedInvWeddingFindUniqueArgs>
+  ): Promise<PrismaWedInvWedding> {
+    const { photo } = await this.prisma.wedInvWedding.findUniqueOrThrow({
+      where: args.where,
+    });
+
+    await this.localStorageService.deleteFile(
+      photo as unknown as LocalStorageFile
+    );
+
+    return await this.prisma.wedInvWedding.update({
+      where: args.where,
+
+      data: {
+        photo: Prisma.DbNull,
+      },
+    });
   }
 
   async getWedInv(parentId: string): Promise<PrismaWedInv | null> {

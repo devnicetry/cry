@@ -1,3 +1,4 @@
+import { JsonValue } from "type-fest";
 import { WedInv } from "../wedInv/WedInv";
 
 export type WedInvWedding = {
@@ -7,7 +8,7 @@ export type WedInvWedding = {
   id: string;
   mother: string | null;
   name: string | null;
-  photo: string | null;
+  photo: JsonValue;
   updatedAt: Date;
   wedInv?: WedInv | null;
 };

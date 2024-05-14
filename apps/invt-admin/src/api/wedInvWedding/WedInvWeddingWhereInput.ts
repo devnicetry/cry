@@ -1,5 +1,6 @@
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { JsonFilter } from "../../util/JsonFilter";
 import { WedInvWhereUniqueInput } from "../wedInv/WedInvWhereUniqueInput";
 
 export type WedInvWeddingWhereInput = {
@@ -8,6 +9,6 @@ export type WedInvWeddingWhereInput = {
   id?: StringFilter;
   mother?: StringNullableFilter;
   name?: StringNullableFilter;
-  photo?: StringNullableFilter;
+  photo?: JsonFilter;
   wedInv?: WedInvWhereUniqueInput;
 };

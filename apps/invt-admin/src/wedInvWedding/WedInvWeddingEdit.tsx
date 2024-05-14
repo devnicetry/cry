@@ -27,7 +27,7 @@ export const WedInvWeddingEdit = (props: EditProps): React.ReactElement => {
         />
         <TextInput label="Mother" source="mother" />
         <TextInput label="Name" source="name" />
-        <TextInput label="Photo" source="photo" />
+        <div />
         <ReferenceInput source="wedInv.id" reference="WedInv" label="Wed Inv_">
           <SelectInput optionText={WedInvTitle} />
         </ReferenceInput>

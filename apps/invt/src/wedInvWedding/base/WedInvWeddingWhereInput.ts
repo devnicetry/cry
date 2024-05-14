@@ -16,6 +16,7 @@ import { Type } from "class-transformer";
 import { IsOptional, IsEnum, ValidateNested } from "class-validator";
 import { EnumWedInvWeddingGender } from "./EnumWedInvWeddingGender";
 import { StringFilter } from "../../util/StringFilter";
+import { JsonFilter } from "../../util/JsonFilter";
 import { WedInvWhereUniqueInput } from "../../wedInv/base/WedInvWhereUniqueInput";
 
 @InputType()
@@ -77,14 +78,14 @@ class WedInvWeddingWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: JsonFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => JsonFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => JsonFilter, {
     nullable: true,
   })
-  photo?: StringNullableFilter;
+  photo?: JsonFilter;
 
   @ApiProperty({
     required: false,

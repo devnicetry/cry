@@ -13,6 +13,9 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsString, IsOptional, IsEnum, ValidateNested } from "class-validator";
 import { EnumWedInvWeddingGender } from "./EnumWedInvWeddingGender";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { InputJsonValue } from "../../types";
 import { WedInvWhereUniqueInput } from "../../wedInv/base/WedInvWhereUniqueInput";
 import { Type } from "class-transformer";
 
@@ -64,14 +67,13 @@ class WedInvWeddingUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsJSONValue()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => GraphQLJSON, {
     nullable: true,
   })
-  photo?: string | null;
+  photo?: InputJsonValue;
 
   @ApiProperty({
     required: false,
