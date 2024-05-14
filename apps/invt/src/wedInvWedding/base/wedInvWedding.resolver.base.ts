@@ -17,6 +17,8 @@ import * as nestAccessControl from "nest-access-control";
 import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
+import { GraphQLUpload } from "graphql-upload";
+import { FileUpload } from "src/storage/base/storage.types";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { Public } from "../../decorators/public.decorator";
@@ -158,6 +160,27 @@ export class WedInvWeddingResolverBase {
       }
       throw error;
     }
+  }
+
+  @graphql.Mutation(() => WedInvWedding)
+  async uploadPhoto(
+    @graphql.Args({
+      name: "file",
+      type: () => GraphQLUpload,
+    })
+    file: FileUpload,
+    @graphql.Args()
+    args: WedInvWeddingFindUniqueArgs
+  ): Promise<WedInvWedding> {
+    return await this.service.uploadPhoto(args, file);
+  }
+
+  @graphql.Mutation(() => WedInvWedding)
+  async deletePhoto(
+    @graphql.Args()
+    args: WedInvWeddingFindUniqueArgs
+  ): Promise<WedInvWedding> {
+    return await this.service.deletePhoto(args);
   }
 
   @Public()

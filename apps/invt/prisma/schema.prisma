@@ -85,7 +85,7 @@ model WedInvWedding {
   id        String                   @id @default(auto()) @map("_id") @db.ObjectId
   mother    String?
   name      String?
-  photo     String?
+  photo     Json?
   updatedAt DateTime                 @updatedAt
   wedInv    WedInv?                  @relation(fields: [wedInvId], references: [id])
   wedInvId  String?                  @db.ObjectId
