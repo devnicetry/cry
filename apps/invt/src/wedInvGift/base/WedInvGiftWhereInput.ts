@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
+import { JsonFilter } from "../../util/JsonFilter";
 import { DtGiftWhereUniqueInput } from "../../dtGift/base/DtGiftWhereUniqueInput";
 import { StringFilter } from "../../util/StringFilter";
 import { WedInvWhereUniqueInput } from "../../wedInv/base/WedInvWhereUniqueInput";
@@ -44,14 +45,14 @@ class WedInvGiftWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: JsonFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => JsonFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => JsonFilter, {
     nullable: true,
   })
-  accountPhoto?: StringNullableFilter;
+  accountPhoto?: JsonFilter;
 
   @ApiProperty({
     required: false,

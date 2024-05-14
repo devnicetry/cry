@@ -7,6 +7,7 @@ import { WedInvPayment } from "../wedInvPayment/WedInvPayment";
 import { WedInvPreset } from "../wedInvPreset/WedInvPreset";
 import { WedInvShare } from "../wedInvShare/WedInvShare";
 import { WedInvStory } from "../wedInvStory/WedInvStory";
+import { WedInvVideo } from "../wedInvVideo/WedInvVideo";
 import { WedInvWedding } from "../wedInvWedding/WedInvWedding";
 
 export type WedInv = {
@@ -24,5 +25,6 @@ export type WedInv = {
   wedInvPresets?: Array<WedInvPreset>;
   wedInvShares?: Array<WedInvShare>;
   wedInvStories?: Array<WedInvStory>;
+  wedInvVideos?: Array<WedInvVideo>;
   wedInvWeddings?: Array<WedInvWedding>;
 };

@@ -17,6 +17,8 @@ import * as nestAccessControl from "nest-access-control";
 import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
+import { GraphQLUpload } from "graphql-upload";
+import { FileUpload } from "src/storage/base/storage.types";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { Public } from "../../decorators/public.decorator";
@@ -171,6 +173,27 @@ export class WedInvCommentResolverBase {
       }
       throw error;
     }
+  }
+
+  @graphql.Mutation(() => WedInvComment)
+  async uploadMoment(
+    @graphql.Args({
+      name: "file",
+      type: () => GraphQLUpload,
+    })
+    file: FileUpload,
+    @graphql.Args()
+    args: WedInvCommentFindUniqueArgs
+  ): Promise<WedInvComment> {
+    return await this.service.uploadMoment(args, file);
+  }
+
+  @graphql.Mutation(() => WedInvComment)
+  async deleteMoment(
+    @graphql.Args()
+    args: WedInvCommentFindUniqueArgs
+  ): Promise<WedInvComment> {
+    return await this.service.deleteMoment(args);
   }
 
   @Public()

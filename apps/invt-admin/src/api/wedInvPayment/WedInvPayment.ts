@@ -1,4 +1,5 @@
 import { DtPaymentMethod } from "../dtPaymentMethod/DtPaymentMethod";
+import { JsonValue } from "type-fest";
 import { User } from "../user/User";
 import { WedInv } from "../wedInv/WedInv";
 
@@ -8,7 +9,7 @@ export type WedInvPayment = {
   amount: number | null;
   createdAt: Date;
   dtPaymentMethod?: DtPaymentMethod | null;
-  evidence: string | null;
+  evidence: JsonValue;
   id: string;
   noRef: string | null;
   updatedAt: Date;

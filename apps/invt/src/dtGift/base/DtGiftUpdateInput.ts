@@ -13,6 +13,9 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { EnumDtGiftGiftType } from "./EnumDtGiftGiftType";
 import { IsEnum, IsOptional, IsString, ValidateNested } from "class-validator";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { InputJsonValue } from "../../types";
 import { WedInvGiftUpdateManyWithoutDtGiftsInput } from "./WedInvGiftUpdateManyWithoutDtGiftsInput";
 import { Type } from "class-transformer";
 
@@ -31,14 +34,13 @@ class DtGiftUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsJSONValue()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => GraphQLJSON, {
     nullable: true,
   })
-  icon?: string | null;
+  icon?: InputJsonValue;
 
   @ApiProperty({
     required: false,

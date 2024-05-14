@@ -1,3 +1,4 @@
+import { JsonValue } from "type-fest";
 import { WedInvPayment } from "../wedInvPayment/WedInvPayment";
 
 export type DtPaymentMethod = {
@@ -6,7 +7,7 @@ export type DtPaymentMethod = {
   accountNo: string | null;
   accountType?: "EWallet" | "BankTransfer" | null;
   createdAt: Date;
-  icon: string | null;
+  icon: JsonValue;
   id: string;
   updatedAt: Date;
   wedInvPayments?: Array<WedInvPayment>;

@@ -51,6 +51,9 @@ import { WedInvShareWhereUniqueInput } from "../../wedInvShare/base/WedInvShareW
 import { WedInvStoryFindManyArgs } from "../../wedInvStory/base/WedInvStoryFindManyArgs";
 import { WedInvStory } from "../../wedInvStory/base/WedInvStory";
 import { WedInvStoryWhereUniqueInput } from "../../wedInvStory/base/WedInvStoryWhereUniqueInput";
+import { WedInvVideoFindManyArgs } from "../../wedInvVideo/base/WedInvVideoFindManyArgs";
+import { WedInvVideo } from "../../wedInvVideo/base/WedInvVideo";
+import { WedInvVideoWhereUniqueInput } from "../../wedInvVideo/base/WedInvVideoWhereUniqueInput";
 import { WedInvWeddingFindManyArgs } from "../../wedInvWedding/base/WedInvWeddingFindManyArgs";
 import { WedInvWedding } from "../../wedInvWedding/base/WedInvWedding";
 import { WedInvWeddingWhereUniqueInput } from "../../wedInvWedding/base/WedInvWeddingWhereUniqueInput";
@@ -1116,6 +1119,108 @@ export class WedInvControllerBase {
   ): Promise<void> {
     const data = {
       wedInvStories: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateWedInv({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/wedInvVideos")
+  @ApiNestedQuery(WedInvVideoFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "WedInvVideo",
+    action: "read",
+    possession: "any",
+  })
+  async findWedInvVideos(
+    @common.Req() request: Request,
+    @common.Param() params: WedInvWhereUniqueInput
+  ): Promise<WedInvVideo[]> {
+    const query = plainToClass(WedInvVideoFindManyArgs, request.query);
+    const results = await this.service.findWedInvVideos(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+        updatedAt: true,
+        video: true,
+
+        wedInv: {
+          select: {
+            id: true,
+          },
+        },
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/wedInvVideos")
+  @nestAccessControl.UseRoles({
+    resource: "WedInv",
+    action: "update",
+    possession: "any",
+  })
+  async connectWedInvVideos(
+    @common.Param() params: WedInvWhereUniqueInput,
+    @common.Body() body: WedInvVideoWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      wedInvVideos: {
+        connect: body,
+      },
+    };
+    await this.service.updateWedInv({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/wedInvVideos")
+  @nestAccessControl.UseRoles({
+    resource: "WedInv",
+    action: "update",
+    possession: "any",
+  })
+  async updateWedInvVideos(
+    @common.Param() params: WedInvWhereUniqueInput,
+    @common.Body() body: WedInvVideoWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      wedInvVideos: {
+        set: body,
+      },
+    };
+    await this.service.updateWedInv({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/wedInvVideos")
+  @nestAccessControl.UseRoles({
+    resource: "WedInv",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectWedInvVideos(
+    @common.Param() params: WedInvWhereUniqueInput,
+    @common.Body() body: WedInvVideoWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      wedInvVideos: {
         disconnect: body,
       },
     };

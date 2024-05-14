@@ -13,6 +13,9 @@ import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsString, IsOptional, IsDate, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { JsonValue } from "type-fest";
 import { WedInv } from "../../wedInv/base/WedInv";
 import { WedInvShare } from "../../wedInvShare/base/WedInvShare";
 
@@ -58,14 +61,13 @@ class WedInvComment {
 
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsJSONValue()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => GraphQLJSON, {
     nullable: true,
   })
-  moment!: string | null;
+  moment!: JsonValue;
 
   @ApiProperty({
     required: false,

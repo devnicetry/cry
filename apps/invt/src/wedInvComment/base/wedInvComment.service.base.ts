@@ -18,8 +18,16 @@ import {
   WedInvShare as PrismaWedInvShare,
 } from "@prisma/client";
 
+import { LocalStorageService } from "src/storage/providers/local/local.storage.service";
+import { InputJsonValue } from "src/types";
+import { FileDownload, FileUpload } from "src/storage/base/storage.types";
+import { LocalStorageFile } from "src/storage/providers/local/local.storage.types";
+
 export class WedInvCommentServiceBase {
-  constructor(protected readonly prisma: PrismaService) {}
+  constructor(
+    protected readonly prisma: PrismaService,
+    protected readonly localStorageService: LocalStorageService
+  ) {}
 
   async count(
     args: Omit<Prisma.WedInvCommentCountArgs, "select">
@@ -53,6 +61,62 @@ export class WedInvCommentServiceBase {
     args: Prisma.SelectSubset<T, Prisma.WedInvCommentDeleteArgs>
   ): Promise<PrismaWedInvComment> {
     return this.prisma.wedInvComment.delete(args);
+  }
+
+  async uploadMoment<T extends Prisma.WedInvCommentFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.WedInvCommentFindUniqueArgs>,
+    file: FileUpload
+  ): Promise<PrismaWedInvComment> {
+    file.filename = `profilePicture-${args.where.id}.${file.filename
+      .split(".")
+      .pop()}`;
+    const containerPath = "/Wed Inv/Comments/";
+    const moment = await this.localStorageService.uploadFile(
+      file,
+      [],
+      10000000,
+      containerPath
+    );
+
+    return await this.prisma.wedInvComment.update({
+      where: args.where,
+
+      data: {
+        moment: moment as InputJsonValue,
+      },
+    });
+  }
+
+  async downloadMoment<T extends Prisma.WedInvCommentFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.WedInvCommentFindUniqueArgs>
+  ): Promise<FileDownload> {
+    const { moment } = await this.prisma.wedInvComment.findUniqueOrThrow({
+      where: args.where,
+    });
+
+    return await this.localStorageService.downloadFile(
+      moment as unknown as LocalStorageFile
+    );
+  }
+
+  async deleteMoment<T extends Prisma.WedInvCommentFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.WedInvCommentFindUniqueArgs>
+  ): Promise<PrismaWedInvComment> {
+    const { moment } = await this.prisma.wedInvComment.findUniqueOrThrow({
+      where: args.where,
+    });
+
+    await this.localStorageService.deleteFile(
+      moment as unknown as LocalStorageFile
+    );
+
+    return await this.prisma.wedInvComment.update({
+      where: args.where,
+
+      data: {
+        moment: Prisma.DbNull,
+      },
+    });
   }
 
   async getWedInv(parentId: string): Promise<PrismaWedInv | null> {

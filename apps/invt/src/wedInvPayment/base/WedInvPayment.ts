@@ -20,6 +20,9 @@ import {
 } from "class-validator";
 import { Type } from "class-transformer";
 import { DtPaymentMethod } from "../../dtPaymentMethod/base/DtPaymentMethod";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { JsonValue } from "type-fest";
 import { User } from "../../user/base/User";
 import { WedInv } from "../../wedInv/base/WedInv";
 
@@ -77,14 +80,13 @@ class WedInvPayment {
 
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsJSONValue()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => GraphQLJSON, {
     nullable: true,
   })
-  evidence!: string | null;
+  evidence!: JsonValue;
 
   @ApiProperty({
     required: true,

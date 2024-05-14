@@ -20,6 +20,9 @@ import {
 } from "class-validator";
 import { Type } from "class-transformer";
 import { EnumDtGiftGiftType } from "./EnumDtGiftGiftType";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { JsonValue } from "type-fest";
 import { WedInvGift } from "../../wedInvGift/base/WedInvGift";
 
 @ObjectType()
@@ -45,14 +48,13 @@ class DtGift {
 
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsJSONValue()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => GraphQLJSON, {
     nullable: true,
   })
-  icon!: string | null;
+  icon!: JsonValue;
 
   @ApiProperty({
     required: true,

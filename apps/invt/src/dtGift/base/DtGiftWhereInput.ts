@@ -13,9 +13,10 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { EnumDtGiftGiftType } from "./EnumDtGiftGiftType";
 import { IsEnum, IsOptional, ValidateNested } from "class-validator";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { JsonFilter } from "../../util/JsonFilter";
 import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { WedInvGiftListRelationFilter } from "../../wedInvGift/base/WedInvGiftListRelationFilter";
 
 @InputType()
@@ -33,14 +34,14 @@ class DtGiftWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: JsonFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => JsonFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => JsonFilter, {
     nullable: true,
   })
-  icon?: StringNullableFilter;
+  icon?: JsonFilter;
 
   @ApiProperty({
     required: false,

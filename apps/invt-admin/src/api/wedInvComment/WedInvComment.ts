@@ -1,3 +1,4 @@
+import { JsonValue } from "type-fest";
 import { WedInv } from "../wedInv/WedInv";
 import { WedInvShare } from "../wedInvShare/WedInvShare";
 
@@ -6,7 +7,7 @@ export type WedInvComment = {
   confirmation: string | null;
   createdAt: Date;
   id: string;
-  moment: string | null;
+  moment: JsonValue;
   name: string | null;
   updatedAt: Date;
   wedInv?: WedInv | null;

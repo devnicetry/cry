@@ -32,7 +32,7 @@ export const DtPaymentMethodCreate = (
           allowEmpty
           optionValue="value"
         />
-        <TextInput label="Icon" source="icon" />
+        <div />
         <ReferenceArrayInput
           source="wedInvPayments"
           reference="WedInvPayment"

@@ -16,7 +16,7 @@ export const WedInvGiftCreate = (props: CreateProps): React.ReactElement => {
       <SimpleForm>
         <TextInput label="Account Name" source="accountName" />
         <TextInput label="Account No" source="accountNo" />
-        <TextInput label="Account Photo" source="accountPhoto" />
+        <div />
         <TextInput label="Details" multiline source="details" />
         <ReferenceInput source="dtGift.id" reference="DtGift" label="DT Gift_">
           <SelectInput optionText={DtGiftTitle} />

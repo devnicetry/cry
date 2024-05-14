@@ -57,6 +57,10 @@ import { WedInvPresetList } from "./wedInvPreset/WedInvPresetList";
 import { WedInvPresetCreate } from "./wedInvPreset/WedInvPresetCreate";
 import { WedInvPresetEdit } from "./wedInvPreset/WedInvPresetEdit";
 import { WedInvPresetShow } from "./wedInvPreset/WedInvPresetShow";
+import { WedInvVideoList } from "./wedInvVideo/WedInvVideoList";
+import { WedInvVideoCreate } from "./wedInvVideo/WedInvVideoCreate";
+import { WedInvVideoEdit } from "./wedInvVideo/WedInvVideoEdit";
+import { WedInvVideoShow } from "./wedInvVideo/WedInvVideoShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -173,6 +177,13 @@ const App = (): React.ReactElement => {
           edit={WedInvPresetEdit}
           create={WedInvPresetCreate}
           show={WedInvPresetShow}
+        />
+        <Resource
+          name="WedInvVideo"
+          list={WedInvVideoList}
+          edit={WedInvVideoEdit}
+          create={WedInvVideoCreate}
+          show={WedInvVideoShow}
         />
       </Admin>
     </div>

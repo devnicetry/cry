@@ -20,6 +20,7 @@ import { WedInvPaymentTitle } from "../wedInvPayment/WedInvPaymentTitle";
 import { WedInvPresetTitle } from "../wedInvPreset/WedInvPresetTitle";
 import { WedInvShareTitle } from "../wedInvShare/WedInvShareTitle";
 import { WedInvStoryTitle } from "../wedInvStory/WedInvStoryTitle";
+import { WedInvVideoTitle } from "../wedInvVideo/WedInvVideoTitle";
 import { WedInvWeddingTitle } from "../wedInvWedding/WedInvWeddingTitle";
 
 export const WedInvCreate = (props: CreateProps): React.ReactElement => {
@@ -104,6 +105,14 @@ export const WedInvCreate = (props: CreateProps): React.ReactElement => {
           format={(value: any) => value && value.map((v: any) => v.id)}
         >
           <SelectArrayInput optionText={WedInvStoryTitle} />
+        </ReferenceArrayInput>
+        <ReferenceArrayInput
+          source="wedInvVideos"
+          reference="WedInvVideo"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={WedInvVideoTitle} />
         </ReferenceArrayInput>
         <ReferenceArrayInput
           source="wedInvWeddings"

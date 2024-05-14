@@ -1,6 +1,7 @@
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { JsonFilter } from "../../util/JsonFilter";
 import { WedInvWhereUniqueInput } from "../wedInv/WedInvWhereUniqueInput";
 
 export type WedInvStoryWhereInput = {
@@ -8,6 +9,6 @@ export type WedInvStoryWhereInput = {
   description?: StringNullableFilter;
   id?: StringFilter;
   name?: StringNullableFilter;
-  photo?: StringNullableFilter;
+  photo?: JsonFilter;
   wedInv?: WedInvWhereUniqueInput;
 };

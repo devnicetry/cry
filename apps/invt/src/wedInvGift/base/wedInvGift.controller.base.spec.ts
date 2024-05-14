@@ -20,7 +20,6 @@ const existingId = "existingId";
 const CREATE_INPUT = {
   accountName: "exampleAccountName",
   accountNo: "exampleAccountNo",
-  accountPhoto: "exampleAccountPhoto",
   createdAt: new Date(),
   details: "exampleDetails",
   id: "exampleId",
@@ -29,7 +28,6 @@ const CREATE_INPUT = {
 const CREATE_RESULT = {
   accountName: "exampleAccountName",
   accountNo: "exampleAccountNo",
-  accountPhoto: "exampleAccountPhoto",
   createdAt: new Date(),
   details: "exampleDetails",
   id: "exampleId",
@@ -39,7 +37,6 @@ const FIND_MANY_RESULT = [
   {
     accountName: "exampleAccountName",
     accountNo: "exampleAccountNo",
-    accountPhoto: "exampleAccountPhoto",
     createdAt: new Date(),
     details: "exampleDetails",
     id: "exampleId",
@@ -49,7 +46,6 @@ const FIND_MANY_RESULT = [
 const FIND_ONE_RESULT = {
   accountName: "exampleAccountName",
   accountNo: "exampleAccountNo",
-  accountPhoto: "exampleAccountPhoto",
   createdAt: new Date(),
   details: "exampleDetails",
   id: "exampleId",

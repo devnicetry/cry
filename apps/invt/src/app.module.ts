@@ -12,6 +12,7 @@ import { WedInvCommentModule } from "./wedInvComment/wedInvComment.module";
 import { DtPaymentMethodModule } from "./dtPaymentMethod/dtPaymentMethod.module";
 import { WedInvPaymentModule } from "./wedInvPayment/wedInvPayment.module";
 import { WedInvPresetModule } from "./wedInvPreset/wedInvPreset.module";
+import { WedInvVideoModule } from "./wedInvVideo/wedInvVideo.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -44,6 +45,7 @@ import { AuthModule } from "./auth/auth.module";
     DtPaymentMethodModule,
     WedInvPaymentModule,
     WedInvPresetModule,
+    WedInvVideoModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

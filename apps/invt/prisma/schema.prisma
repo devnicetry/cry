@@ -37,6 +37,7 @@ model WedInv {
   wedInvPresets   WedInvPreset[]
   wedInvShares    WedInvShare[]
   wedInvStories   WedInvStory[]
+  wedInvVideos    WedInvVideo[]
   wedInvWeddings  WedInvWedding[]
 }
 
@@ -62,7 +63,7 @@ model WedInvStory {
   description String?
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
   name        String?
-  photo       String?
+  photo       Json?
   updatedAt   DateTime  @updatedAt
   wedInv      WedInv?   @relation(fields: [wedInvId], references: [id])
   wedInvId    String?   @db.ObjectId
@@ -72,7 +73,7 @@ model WedInvGallery {
   createdAt DateTime @default(now())
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   name      String?
-  photo     String?
+  photo     Json?
   updatedAt DateTime @updatedAt
   wedInv    WedInv?  @relation(fields: [wedInvId], references: [id])
   wedInvId  String?  @db.ObjectId
@@ -94,7 +95,7 @@ model WedInvWedding {
 model DtGift {
   createdAt   DateTime            @default(now())
   giftType    EnumDtGiftGiftType?
-  icon        String?
+  icon        Json?
   id          String              @id @default(auto()) @map("_id") @db.ObjectId
   name        String?
   updatedAt   DateTime            @updatedAt
@@ -104,7 +105,7 @@ model DtGift {
 model WedInvGift {
   accountName  String?
   accountNo    String?
-  accountPhoto String?
+  accountPhoto Json?
   createdAt    DateTime @default(now())
   details      String?
   dtGift       DtGift?  @relation(fields: [dtGiftId], references: [id])
@@ -134,7 +135,7 @@ model WedInvComment {
   confirmation  String?
   createdAt     DateTime     @default(now())
   id            String       @id @default(auto()) @map("_id") @db.ObjectId
-  moment        String?
+  moment        Json?
   name          String?
   updatedAt     DateTime     @updatedAt
   wedInv        WedInv?      @relation(fields: [wedInvId], references: [id])
@@ -149,7 +150,7 @@ model DtPaymentMethod {
   accountNo      String?
   accountType    EnumDtPaymentMethodAccountType?
   createdAt      DateTime                        @default(now())
-  icon           String?
+  icon           Json?
   id             String                          @id @default(auto()) @map("_id") @db.ObjectId
   updatedAt      DateTime                        @updatedAt
   wedInvPayments WedInvPayment[]
@@ -162,7 +163,7 @@ model WedInvPayment {
   createdAt         DateTime         @default(now())
   dtPaymentMethod   DtPaymentMethod? @relation(fields: [dtPaymentMethodId], references: [id])
   dtPaymentMethodId String?          @db.ObjectId
-  evidence          String?
+  evidence          Json?
   id                String           @id @default(auto()) @map("_id") @db.ObjectId
   noRef             String?
   updatedAt         DateTime         @updatedAt
@@ -176,6 +177,15 @@ model WedInvPreset {
   createdAt DateTime @default(now())
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   updatedAt DateTime @updatedAt
+  wedInv    WedInv?  @relation(fields: [wedInvId], references: [id])
+  wedInvId  String?  @db.ObjectId
+}
+
+model WedInvVideo {
+  createdAt DateTime @default(now())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  updatedAt DateTime @updatedAt
+  video     Json?
   wedInv    WedInv?  @relation(fields: [wedInvId], references: [id])
   wedInvId  String?  @db.ObjectId
 }

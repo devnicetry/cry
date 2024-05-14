@@ -16,7 +16,7 @@ export const WedInvCommentCreate = (props: CreateProps): React.ReactElement => {
       <SimpleForm>
         <TextInput label="Comment" multiline source="comment" />
         <TextInput label="Confirmation" source="confirmation" />
-        <TextInput label="Moment" source="moment" />
+        <div />
         <TextInput label="Name" source="name" />
         <ReferenceInput source="wedInv.id" reference="WedInv" label="Wed Inv_">
           <SelectInput optionText={WedInvTitle} />

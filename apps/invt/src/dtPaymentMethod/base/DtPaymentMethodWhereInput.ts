@@ -15,6 +15,7 @@ import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional, IsEnum, ValidateNested } from "class-validator";
 import { EnumDtPaymentMethodAccountType } from "./EnumDtPaymentMethodAccountType";
+import { JsonFilter } from "../../util/JsonFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { WedInvPaymentListRelationFilter } from "../../wedInvPayment/base/WedInvPaymentListRelationFilter";
 
@@ -66,14 +67,14 @@ class DtPaymentMethodWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: JsonFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => JsonFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => JsonFilter, {
     nullable: true,
   })
-  icon?: StringNullableFilter;
+  icon?: JsonFilter;
 
   @ApiProperty({
     required: false,

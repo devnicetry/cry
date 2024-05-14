@@ -67,11 +67,11 @@ export class WedInvWeddingServiceBase {
     file.filename = `profilePicture-${args.where.id}.${file.filename
       .split(".")
       .pop()}`;
-    const containerPath = "/";
+    const containerPath = "/Wed Inv/Weddings/";
     const photo = await this.localStorageService.uploadFile(
       file,
       [],
-      100000,
+      10000000,
       containerPath
     );
 

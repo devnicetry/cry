@@ -20,6 +20,9 @@ import {
 } from "class-validator";
 import { EnumDtPaymentMethodAccountType } from "./EnumDtPaymentMethodAccountType";
 import { Type } from "class-transformer";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { JsonValue } from "type-fest";
 import { WedInvPayment } from "../../wedInvPayment/base/WedInvPayment";
 
 @ObjectType()
@@ -78,14 +81,13 @@ class DtPaymentMethod {
 
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsJSONValue()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => GraphQLJSON, {
     nullable: true,
   })
-  icon!: string | null;
+  icon!: JsonValue;
 
   @ApiProperty({
     required: true,

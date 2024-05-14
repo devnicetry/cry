@@ -23,6 +23,7 @@ import { WedInvPaymentCreateNestedManyWithoutWedInvsInput } from "./WedInvPaymen
 import { WedInvPresetCreateNestedManyWithoutWedInvsInput } from "./WedInvPresetCreateNestedManyWithoutWedInvsInput";
 import { WedInvShareCreateNestedManyWithoutWedInvsInput } from "./WedInvShareCreateNestedManyWithoutWedInvsInput";
 import { WedInvStoryCreateNestedManyWithoutWedInvsInput } from "./WedInvStoryCreateNestedManyWithoutWedInvsInput";
+import { WedInvVideoCreateNestedManyWithoutWedInvsInput } from "./WedInvVideoCreateNestedManyWithoutWedInvsInput";
 import { WedInvWeddingCreateNestedManyWithoutWedInvsInput } from "./WedInvWeddingCreateNestedManyWithoutWedInvsInput";
 
 @InputType()
@@ -156,6 +157,18 @@ class WedInvCreateInput {
     nullable: true,
   })
   wedInvStories?: WedInvStoryCreateNestedManyWithoutWedInvsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => WedInvVideoCreateNestedManyWithoutWedInvsInput,
+  })
+  @ValidateNested()
+  @Type(() => WedInvVideoCreateNestedManyWithoutWedInvsInput)
+  @IsOptional()
+  @Field(() => WedInvVideoCreateNestedManyWithoutWedInvsInput, {
+    nullable: true,
+  })
+  wedInvVideos?: WedInvVideoCreateNestedManyWithoutWedInvsInput;
 
   @ApiProperty({
     required: false,

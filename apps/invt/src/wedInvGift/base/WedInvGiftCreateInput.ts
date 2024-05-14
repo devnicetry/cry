@@ -12,6 +12,9 @@ https://docs.amplication.com/how-to/custom-code
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { IsString, IsOptional, ValidateNested } from "class-validator";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { InputJsonValue } from "../../types";
 import { DtGiftWhereUniqueInput } from "../../dtGift/base/DtGiftWhereUniqueInput";
 import { Type } from "class-transformer";
 import { WedInvWhereUniqueInput } from "../../wedInv/base/WedInvWhereUniqueInput";
@@ -42,14 +45,13 @@ class WedInvGiftCreateInput {
 
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsJSONValue()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => GraphQLJSON, {
     nullable: true,
   })
-  accountPhoto?: string | null;
+  accountPhoto?: InputJsonValue;
 
   @ApiProperty({
     required: false,

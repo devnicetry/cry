@@ -7,6 +7,7 @@ import { WedInvPaymentUpdateManyWithoutWedInvsInput } from "./WedInvPaymentUpdat
 import { WedInvPresetUpdateManyWithoutWedInvsInput } from "./WedInvPresetUpdateManyWithoutWedInvsInput";
 import { WedInvShareUpdateManyWithoutWedInvsInput } from "./WedInvShareUpdateManyWithoutWedInvsInput";
 import { WedInvStoryUpdateManyWithoutWedInvsInput } from "./WedInvStoryUpdateManyWithoutWedInvsInput";
+import { WedInvVideoUpdateManyWithoutWedInvsInput } from "./WedInvVideoUpdateManyWithoutWedInvsInput";
 import { WedInvWeddingUpdateManyWithoutWedInvsInput } from "./WedInvWeddingUpdateManyWithoutWedInvsInput";
 
 export type WedInvUpdateInput = {
@@ -21,5 +22,6 @@ export type WedInvUpdateInput = {
   wedInvPresets?: WedInvPresetUpdateManyWithoutWedInvsInput;
   wedInvShares?: WedInvShareUpdateManyWithoutWedInvsInput;
   wedInvStories?: WedInvStoryUpdateManyWithoutWedInvsInput;
+  wedInvVideos?: WedInvVideoUpdateManyWithoutWedInvsInput;
   wedInvWeddings?: WedInvWeddingUpdateManyWithoutWedInvsInput;
 };

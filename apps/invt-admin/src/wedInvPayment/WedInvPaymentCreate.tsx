@@ -28,7 +28,7 @@ export const WedInvPaymentCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectInput optionText={DtPaymentMethodTitle} />
         </ReferenceInput>
-        <TextInput label="Evidence" source="evidence" />
+        <div />
         <TextInput label="No Ref" source="noRef" />
         <ReferenceInput source="user.id" reference="User" label="User_">
           <SelectInput optionText={UserTitle} />

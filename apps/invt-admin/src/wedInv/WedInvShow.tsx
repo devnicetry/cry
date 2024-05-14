@@ -231,6 +231,25 @@ export const WedInvShow = (props: ShowProps): React.ReactElement => {
           </Datagrid>
         </ReferenceManyField>
         <ReferenceManyField
+          reference="WedInvVideo"
+          target="wedInvId"
+          label="Wed Inv Videos"
+        >
+          <Datagrid rowClick="show">
+            <DateField source="createdAt" label="Created At" />
+            <TextField label="ID" source="id" />
+            <DateField source="updatedAt" label="Updated At" />
+            <TextField label="Video" source="video" />
+            <ReferenceField
+              label="Wed Inv_"
+              source="wedinv.id"
+              reference="WedInv"
+            >
+              <TextField source={WEDINV_TITLE_FIELD} />
+            </ReferenceField>
+          </Datagrid>
+        </ReferenceManyField>
+        <ReferenceManyField
           reference="WedInvWedding"
           target="wedInvId"
           label="Wed Inv Weddings"
