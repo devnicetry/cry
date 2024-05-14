@@ -22,7 +22,6 @@ const CREATE_INPUT = {
   confirmation: "exampleConfirmation",
   createdAt: new Date(),
   id: "exampleId",
-  moment: "exampleMoment",
   name: "exampleName",
   updatedAt: new Date(),
 };
@@ -31,7 +30,6 @@ const CREATE_RESULT = {
   confirmation: "exampleConfirmation",
   createdAt: new Date(),
   id: "exampleId",
-  moment: "exampleMoment",
   name: "exampleName",
   updatedAt: new Date(),
 };
@@ -41,7 +39,6 @@ const FIND_MANY_RESULT = [
     confirmation: "exampleConfirmation",
     createdAt: new Date(),
     id: "exampleId",
-    moment: "exampleMoment",
     name: "exampleName",
     updatedAt: new Date(),
   },
@@ -51,7 +48,6 @@ const FIND_ONE_RESULT = {
   confirmation: "exampleConfirmation",
   createdAt: new Date(),
   id: "exampleId",
-  moment: "exampleMoment",
   name: "exampleName",
   updatedAt: new Date(),
 };

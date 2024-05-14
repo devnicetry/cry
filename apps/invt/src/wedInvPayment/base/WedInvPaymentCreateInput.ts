@@ -14,6 +14,9 @@ import { ApiProperty } from "@nestjs/swagger";
 import { IsString, IsOptional, IsInt, ValidateNested } from "class-validator";
 import { DtPaymentMethodWhereUniqueInput } from "../../dtPaymentMethod/base/DtPaymentMethodWhereUniqueInput";
 import { Type } from "class-transformer";
+import { IsJSONValue } from "../../validators";
+import { GraphQLJSON } from "graphql-type-json";
+import { InputJsonValue } from "../../types";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
 import { WedInvWhereUniqueInput } from "../../wedInv/base/WedInvWhereUniqueInput";
 
@@ -66,14 +69,13 @@ class WedInvPaymentCreateInput {
 
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsJSONValue()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => GraphQLJSON, {
     nullable: true,
   })
-  evidence?: string | null;
+  evidence?: InputJsonValue;
 
   @ApiProperty({
     required: false,

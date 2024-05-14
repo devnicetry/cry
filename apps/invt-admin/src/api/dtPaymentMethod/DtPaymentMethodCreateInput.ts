@@ -1,3 +1,4 @@
+import { InputJsonValue } from "../../types";
 import { WedInvPaymentCreateNestedManyWithoutDtPaymentMethodsInput } from "./WedInvPaymentCreateNestedManyWithoutDtPaymentMethodsInput";
 
 export type DtPaymentMethodCreateInput = {
@@ -5,6 +6,6 @@ export type DtPaymentMethodCreateInput = {
   accountName?: string | null;
   accountNo?: string | null;
   accountType?: "EWallet" | "BankTransfer" | null;
-  icon?: string | null;
+  icon?: InputJsonValue;
   wedInvPayments?: WedInvPaymentCreateNestedManyWithoutDtPaymentMethodsInput;
 };

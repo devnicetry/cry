@@ -19,8 +19,16 @@ import {
   WedInv as PrismaWedInv,
 } from "@prisma/client";
 
+import { LocalStorageService } from "src/storage/providers/local/local.storage.service";
+import { InputJsonValue } from "src/types";
+import { FileDownload, FileUpload } from "src/storage/base/storage.types";
+import { LocalStorageFile } from "src/storage/providers/local/local.storage.types";
+
 export class WedInvPaymentServiceBase {
-  constructor(protected readonly prisma: PrismaService) {}
+  constructor(
+    protected readonly prisma: PrismaService,
+    protected readonly localStorageService: LocalStorageService
+  ) {}
 
   async count(
     args: Omit<Prisma.WedInvPaymentCountArgs, "select">
@@ -54,6 +62,62 @@ export class WedInvPaymentServiceBase {
     args: Prisma.SelectSubset<T, Prisma.WedInvPaymentDeleteArgs>
   ): Promise<PrismaWedInvPayment> {
     return this.prisma.wedInvPayment.delete(args);
+  }
+
+  async uploadEvidence<T extends Prisma.WedInvPaymentFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.WedInvPaymentFindUniqueArgs>,
+    file: FileUpload
+  ): Promise<PrismaWedInvPayment> {
+    file.filename = `profilePicture-${args.where.id}.${file.filename
+      .split(".")
+      .pop()}`;
+    const containerPath = "/Wed Inv/Payments";
+    const evidence = await this.localStorageService.uploadFile(
+      file,
+      [],
+      10000000,
+      containerPath
+    );
+
+    return await this.prisma.wedInvPayment.update({
+      where: args.where,
+
+      data: {
+        evidence: evidence as InputJsonValue,
+      },
+    });
+  }
+
+  async downloadEvidence<T extends Prisma.WedInvPaymentFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.WedInvPaymentFindUniqueArgs>
+  ): Promise<FileDownload> {
+    const { evidence } = await this.prisma.wedInvPayment.findUniqueOrThrow({
+      where: args.where,
+    });
+
+    return await this.localStorageService.downloadFile(
+      evidence as unknown as LocalStorageFile
+    );
+  }
+
+  async deleteEvidence<T extends Prisma.WedInvPaymentFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.WedInvPaymentFindUniqueArgs>
+  ): Promise<PrismaWedInvPayment> {
+    const { evidence } = await this.prisma.wedInvPayment.findUniqueOrThrow({
+      where: args.where,
+    });
+
+    await this.localStorageService.deleteFile(
+      evidence as unknown as LocalStorageFile
+    );
+
+    return await this.prisma.wedInvPayment.update({
+      where: args.where,
+
+      data: {
+        evidence: Prisma.DbNull,
+      },
+    });
   }
 
   async getDtPaymentMethod(

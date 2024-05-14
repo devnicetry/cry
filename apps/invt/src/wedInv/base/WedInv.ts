@@ -29,6 +29,7 @@ import { WedInvPayment } from "../../wedInvPayment/base/WedInvPayment";
 import { WedInvPreset } from "../../wedInvPreset/base/WedInvPreset";
 import { WedInvShare } from "../../wedInvShare/base/WedInvShare";
 import { WedInvStory } from "../../wedInvStory/base/WedInvStory";
+import { WedInvVideo } from "../../wedInvVideo/base/WedInvVideo";
 import { WedInvWedding } from "../../wedInvWedding/base/WedInvWedding";
 
 @ObjectType()
@@ -159,6 +160,15 @@ class WedInv {
   @Type(() => WedInvStory)
   @IsOptional()
   wedInvStories?: Array<WedInvStory>;
+
+  @ApiProperty({
+    required: false,
+    type: () => [WedInvVideo],
+  })
+  @ValidateNested()
+  @Type(() => WedInvVideo)
+  @IsOptional()
+  wedInvVideos?: Array<WedInvVideo>;
 
   @ApiProperty({
     required: false,

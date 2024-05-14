@@ -14,7 +14,7 @@ export const WedInvGalleryCreate = (props: CreateProps): React.ReactElement => {
     <Create {...props}>
       <SimpleForm>
         <TextInput label="Name" source="name" />
-        <TextInput label="Photo" source="photo" />
+        <div />
         <ReferenceInput source="wedInv.id" reference="WedInv" label="Wed Inv_">
           <SelectInput optionText={WedInvTitle} />
         </ReferenceInput>

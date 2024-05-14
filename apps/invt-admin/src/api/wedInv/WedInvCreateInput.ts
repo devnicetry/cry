@@ -7,6 +7,7 @@ import { WedInvPaymentCreateNestedManyWithoutWedInvsInput } from "./WedInvPaymen
 import { WedInvPresetCreateNestedManyWithoutWedInvsInput } from "./WedInvPresetCreateNestedManyWithoutWedInvsInput";
 import { WedInvShareCreateNestedManyWithoutWedInvsInput } from "./WedInvShareCreateNestedManyWithoutWedInvsInput";
 import { WedInvStoryCreateNestedManyWithoutWedInvsInput } from "./WedInvStoryCreateNestedManyWithoutWedInvsInput";
+import { WedInvVideoCreateNestedManyWithoutWedInvsInput } from "./WedInvVideoCreateNestedManyWithoutWedInvsInput";
 import { WedInvWeddingCreateNestedManyWithoutWedInvsInput } from "./WedInvWeddingCreateNestedManyWithoutWedInvsInput";
 
 export type WedInvCreateInput = {
@@ -21,5 +22,6 @@ export type WedInvCreateInput = {
   wedInvPresets?: WedInvPresetCreateNestedManyWithoutWedInvsInput;
   wedInvShares?: WedInvShareCreateNestedManyWithoutWedInvsInput;
   wedInvStories?: WedInvStoryCreateNestedManyWithoutWedInvsInput;
+  wedInvVideos?: WedInvVideoCreateNestedManyWithoutWedInvsInput;
   wedInvWeddings?: WedInvWeddingCreateNestedManyWithoutWedInvsInput;
 };

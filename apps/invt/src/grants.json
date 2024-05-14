@@ -1150,5 +1150,95 @@
     "resource": "WedInvPreset",
     "action": "read:any",
     "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "WedInvVideo",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "reseller",
+    "resource": "WedInvVideo",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "WedInvVideo",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "WedInvVideo",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "reseller",
+    "resource": "WedInvVideo",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "WedInvVideo",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "WedInvVideo",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "reseller",
+    "resource": "WedInvVideo",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "WedInvVideo",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "WedInvVideo",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "reseller",
+    "resource": "WedInvVideo",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "WedInvVideo",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "admin",
+    "resource": "WedInvVideo",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "reseller",
+    "resource": "WedInvVideo",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "WedInvVideo",
+    "action": "read:any",
+    "attributes": "*"
   }
 ]

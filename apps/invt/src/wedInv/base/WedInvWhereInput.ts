@@ -25,6 +25,7 @@ import { WedInvPaymentListRelationFilter } from "../../wedInvPayment/base/WedInv
 import { WedInvPresetListRelationFilter } from "../../wedInvPreset/base/WedInvPresetListRelationFilter";
 import { WedInvShareListRelationFilter } from "../../wedInvShare/base/WedInvShareListRelationFilter";
 import { WedInvStoryListRelationFilter } from "../../wedInvStory/base/WedInvStoryListRelationFilter";
+import { WedInvVideoListRelationFilter } from "../../wedInvVideo/base/WedInvVideoListRelationFilter";
 import { WedInvWeddingListRelationFilter } from "../../wedInvWedding/base/WedInvWeddingListRelationFilter";
 
 @InputType()
@@ -169,6 +170,18 @@ class WedInvWhereInput {
     nullable: true,
   })
   wedInvStories?: WedInvStoryListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => WedInvVideoListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => WedInvVideoListRelationFilter)
+  @IsOptional()
+  @Field(() => WedInvVideoListRelationFilter, {
+    nullable: true,
+  })
+  wedInvVideos?: WedInvVideoListRelationFilter;
 
   @ApiProperty({
     required: false,

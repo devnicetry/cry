@@ -17,8 +17,16 @@ import {
   WedInvPayment as PrismaWedInvPayment,
 } from "@prisma/client";
 
+import { LocalStorageService } from "src/storage/providers/local/local.storage.service";
+import { InputJsonValue } from "src/types";
+import { FileDownload, FileUpload } from "src/storage/base/storage.types";
+import { LocalStorageFile } from "src/storage/providers/local/local.storage.types";
+
 export class DtPaymentMethodServiceBase {
-  constructor(protected readonly prisma: PrismaService) {}
+  constructor(
+    protected readonly prisma: PrismaService,
+    protected readonly localStorageService: LocalStorageService
+  ) {}
 
   async count(
     args: Omit<Prisma.DtPaymentMethodCountArgs, "select">
@@ -52,6 +60,62 @@ export class DtPaymentMethodServiceBase {
     args: Prisma.SelectSubset<T, Prisma.DtPaymentMethodDeleteArgs>
   ): Promise<PrismaDtPaymentMethod> {
     return this.prisma.dtPaymentMethod.delete(args);
+  }
+
+  async uploadIcon<T extends Prisma.DtPaymentMethodFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.DtPaymentMethodFindUniqueArgs>,
+    file: FileUpload
+  ): Promise<PrismaDtPaymentMethod> {
+    file.filename = `profilePicture-${args.where.id}.${file.filename
+      .split(".")
+      .pop()}`;
+    const containerPath = "/DT/Payment Methods/";
+    const icon = await this.localStorageService.uploadFile(
+      file,
+      [],
+      10000000,
+      containerPath
+    );
+
+    return await this.prisma.dtPaymentMethod.update({
+      where: args.where,
+
+      data: {
+        icon: icon as InputJsonValue,
+      },
+    });
+  }
+
+  async downloadIcon<T extends Prisma.DtPaymentMethodFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.DtPaymentMethodFindUniqueArgs>
+  ): Promise<FileDownload> {
+    const { icon } = await this.prisma.dtPaymentMethod.findUniqueOrThrow({
+      where: args.where,
+    });
+
+    return await this.localStorageService.downloadFile(
+      icon as unknown as LocalStorageFile
+    );
+  }
+
+  async deleteIcon<T extends Prisma.DtPaymentMethodFindUniqueArgs>(
+    args: Prisma.SelectSubset<T, Prisma.DtPaymentMethodFindUniqueArgs>
+  ): Promise<PrismaDtPaymentMethod> {
+    const { icon } = await this.prisma.dtPaymentMethod.findUniqueOrThrow({
+      where: args.where,
+    });
+
+    await this.localStorageService.deleteFile(
+      icon as unknown as LocalStorageFile
+    );
+
+    return await this.prisma.dtPaymentMethod.update({
+      where: args.where,
+
+      data: {
+        icon: Prisma.DbNull,
+      },
+    });
   }
 
   async findWedInvPayments(

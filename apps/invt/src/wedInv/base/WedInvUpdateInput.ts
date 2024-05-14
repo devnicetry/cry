@@ -23,6 +23,7 @@ import { WedInvPaymentUpdateManyWithoutWedInvsInput } from "./WedInvPaymentUpdat
 import { WedInvPresetUpdateManyWithoutWedInvsInput } from "./WedInvPresetUpdateManyWithoutWedInvsInput";
 import { WedInvShareUpdateManyWithoutWedInvsInput } from "./WedInvShareUpdateManyWithoutWedInvsInput";
 import { WedInvStoryUpdateManyWithoutWedInvsInput } from "./WedInvStoryUpdateManyWithoutWedInvsInput";
+import { WedInvVideoUpdateManyWithoutWedInvsInput } from "./WedInvVideoUpdateManyWithoutWedInvsInput";
 import { WedInvWeddingUpdateManyWithoutWedInvsInput } from "./WedInvWeddingUpdateManyWithoutWedInvsInput";
 
 @InputType()
@@ -156,6 +157,18 @@ class WedInvUpdateInput {
     nullable: true,
   })
   wedInvStories?: WedInvStoryUpdateManyWithoutWedInvsInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => WedInvVideoUpdateManyWithoutWedInvsInput,
+  })
+  @ValidateNested()
+  @Type(() => WedInvVideoUpdateManyWithoutWedInvsInput)
+  @IsOptional()
+  @Field(() => WedInvVideoUpdateManyWithoutWedInvsInput, {
+    nullable: true,
+  })
+  wedInvVideos?: WedInvVideoUpdateManyWithoutWedInvsInput;
 
   @ApiProperty({
     required: false,

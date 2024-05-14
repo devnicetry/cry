@@ -22,6 +22,7 @@ import {
   WedInvPreset as PrismaWedInvPreset,
   WedInvShare as PrismaWedInvShare,
   WedInvStory as PrismaWedInvStory,
+  WedInvVideo as PrismaWedInvVideo,
   WedInvWedding as PrismaWedInvWedding,
   User as PrismaUser,
 } from "@prisma/client";
@@ -145,6 +146,17 @@ export class WedInvServiceBase {
         where: { id: parentId },
       })
       .wedInvStories(args);
+  }
+
+  async findWedInvVideos(
+    parentId: string,
+    args: Prisma.WedInvVideoFindManyArgs
+  ): Promise<PrismaWedInvVideo[]> {
+    return this.prisma.wedInv
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .wedInvVideos(args);
   }
 
   async findWedInvWeddings(

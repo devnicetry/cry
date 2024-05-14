@@ -43,6 +43,8 @@ import { WedInvShareFindManyArgs } from "../../wedInvShare/base/WedInvShareFindM
 import { WedInvShare } from "../../wedInvShare/base/WedInvShare";
 import { WedInvStoryFindManyArgs } from "../../wedInvStory/base/WedInvStoryFindManyArgs";
 import { WedInvStory } from "../../wedInvStory/base/WedInvStory";
+import { WedInvVideoFindManyArgs } from "../../wedInvVideo/base/WedInvVideoFindManyArgs";
+import { WedInvVideo } from "../../wedInvVideo/base/WedInvVideo";
 import { WedInvWeddingFindManyArgs } from "../../wedInvWedding/base/WedInvWeddingFindManyArgs";
 import { WedInvWedding } from "../../wedInvWedding/base/WedInvWedding";
 import { User } from "../../user/base/User";
@@ -321,6 +323,26 @@ export class WedInvResolverBase {
     @graphql.Args() args: WedInvStoryFindManyArgs
   ): Promise<WedInvStory[]> {
     const results = await this.service.findWedInvStories(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [WedInvVideo], { name: "wedInvVideos" })
+  @nestAccessControl.UseRoles({
+    resource: "WedInvVideo",
+    action: "read",
+    possession: "any",
+  })
+  async findWedInvVideos(
+    @graphql.Parent() parent: WedInv,
+    @graphql.Args() args: WedInvVideoFindManyArgs
+  ): Promise<WedInvVideo[]> {
+    const results = await this.service.findWedInvVideos(parent.id, args);
 
     if (!results) {
       return [];

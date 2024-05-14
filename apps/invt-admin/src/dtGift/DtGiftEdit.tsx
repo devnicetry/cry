@@ -29,7 +29,7 @@ export const DtGiftEdit = (props: EditProps): React.ReactElement => {
           allowEmpty
           optionValue="value"
         />
-        <TextInput label="Icon" source="icon" />
+        <div />
         <TextInput label="Name" source="name" />
         <ReferenceArrayInput
           source="wedInvGifts"

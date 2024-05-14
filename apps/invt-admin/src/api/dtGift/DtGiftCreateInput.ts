@@ -1,8 +1,9 @@
+import { InputJsonValue } from "../../types";
 import { WedInvGiftCreateNestedManyWithoutDtGiftsInput } from "./WedInvGiftCreateNestedManyWithoutDtGiftsInput";
 
 export type DtGiftCreateInput = {
   giftType?: "EWallet" | "BankTransfer" | "Qris" | "Shipping" | null;
-  icon?: string | null;
+  icon?: InputJsonValue;
   name?: string | null;
   wedInvGifts?: WedInvGiftCreateNestedManyWithoutDtGiftsInput;
 };

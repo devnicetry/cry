@@ -15,6 +15,7 @@ import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
+import { JsonFilter } from "../../util/JsonFilter";
 import { WedInvWhereUniqueInput } from "../../wedInv/base/WedInvWhereUniqueInput";
 import { WedInvShareWhereUniqueInput } from "../../wedInvShare/base/WedInvShareWhereUniqueInput";
 
@@ -55,14 +56,14 @@ class WedInvCommentWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    type: JsonFilter,
   })
-  @Type(() => StringNullableFilter)
+  @Type(() => JsonFilter)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => JsonFilter, {
     nullable: true,
   })
-  moment?: StringNullableFilter;
+  moment?: JsonFilter;
 
   @ApiProperty({
     required: false,

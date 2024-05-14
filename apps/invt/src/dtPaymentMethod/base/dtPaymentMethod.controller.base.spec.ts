@@ -22,7 +22,6 @@ const CREATE_INPUT = {
   accountName: "exampleAccountName",
   accountNo: "exampleAccountNo",
   createdAt: new Date(),
-  icon: "exampleIcon",
   id: "exampleId",
   updatedAt: new Date(),
 };
@@ -31,7 +30,6 @@ const CREATE_RESULT = {
   accountName: "exampleAccountName",
   accountNo: "exampleAccountNo",
   createdAt: new Date(),
-  icon: "exampleIcon",
   id: "exampleId",
   updatedAt: new Date(),
 };
@@ -41,7 +39,6 @@ const FIND_MANY_RESULT = [
     accountName: "exampleAccountName",
     accountNo: "exampleAccountNo",
     createdAt: new Date(),
-    icon: "exampleIcon",
     id: "exampleId",
     updatedAt: new Date(),
   },
@@ -51,7 +48,6 @@ const FIND_ONE_RESULT = {
   accountName: "exampleAccountName",
   accountNo: "exampleAccountNo",
   createdAt: new Date(),
-  icon: "exampleIcon",
   id: "exampleId",
   updatedAt: new Date(),
 };

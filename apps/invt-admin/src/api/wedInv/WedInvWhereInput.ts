@@ -9,6 +9,7 @@ import { WedInvPaymentListRelationFilter } from "../wedInvPayment/WedInvPaymentL
 import { WedInvPresetListRelationFilter } from "../wedInvPreset/WedInvPresetListRelationFilter";
 import { WedInvShareListRelationFilter } from "../wedInvShare/WedInvShareListRelationFilter";
 import { WedInvStoryListRelationFilter } from "../wedInvStory/WedInvStoryListRelationFilter";
+import { WedInvVideoListRelationFilter } from "../wedInvVideo/WedInvVideoListRelationFilter";
 import { WedInvWeddingListRelationFilter } from "../wedInvWedding/WedInvWeddingListRelationFilter";
 
 export type WedInvWhereInput = {
@@ -24,5 +25,6 @@ export type WedInvWhereInput = {
   wedInvPresets?: WedInvPresetListRelationFilter;
   wedInvShares?: WedInvShareListRelationFilter;
   wedInvStories?: WedInvStoryListRelationFilter;
+  wedInvVideos?: WedInvVideoListRelationFilter;
   wedInvWeddings?: WedInvWeddingListRelationFilter;
 };

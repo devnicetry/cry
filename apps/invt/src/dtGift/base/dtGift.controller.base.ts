@@ -13,11 +13,12 @@ import * as common from "@nestjs/common";
 import * as swagger from "@nestjs/swagger";
 import { isRecordNotFoundError } from "../../prisma.util";
 import * as errors from "../../errors";
-import { Request } from "express";
+import { Request, Response } from "express";
 import { plainToClass } from "class-transformer";
 import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import * as nestAccessControl from "nest-access-control";
 import * as defaultAuthGuard from "../../auth/defaultAuth.guard";
+import { FileInterceptor } from "@nestjs/platform-express";
 import { DtGiftService } from "../dtGift.service";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
@@ -196,6 +197,104 @@ export class DtGiftControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.Put(":id/icon")
+  @common.UseInterceptors(FileInterceptor("file"))
+  @swagger.ApiConsumes("multipart/form-data")
+  @swagger.ApiBody({
+    schema: {
+      type: "object",
+
+      properties: {
+        file: {
+          type: "string",
+          format: "binary",
+        },
+      },
+    },
+  })
+  @swagger.ApiParam({
+    name: "id",
+    type: "string",
+    required: true,
+  })
+  @swagger.ApiCreatedResponse({
+    type: DtGift,
+    status: "2XX",
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  async uploadIcon(
+    @common.Param()
+    params: DtGiftWhereUniqueInput,
+    @common.UploadedFile()
+    file: Express.Multer.File
+  ): Promise<DtGift> {
+    return this.service.uploadIcon(
+      {
+        where: params,
+      },
+      Object.assign(file, {
+        filename: file.originalname,
+      })
+    );
+  }
+
+  @common.Get(":id/icon")
+  @swagger.ApiParam({
+    name: "id",
+    type: "string",
+    required: true,
+  })
+  @swagger.ApiOkResponse({
+    type: common.StreamableFile,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  async downloadIcon(
+    @common.Param()
+    params: DtGiftWhereUniqueInput,
+    @common.Res({
+      passthrough: true,
+    })
+    res: Response
+  ): Promise<common.StreamableFile> {
+    const result = await this.service.downloadIcon({
+      where: params,
+    });
+
+    if (result === null) {
+      throw new errors.NotFoundException(
+        "No resource was found for ",
+        JSON.stringify(params)
+      );
+    }
+
+    res.setHeader(
+      "Content-Disposition",
+      `attachment; filename=${result.filename}`
+    );
+    res.setHeader("Content-Type", result.mimetype);
+    return result.stream;
+  }
+
+  @common.Delete(":id/icon")
+  @swagger.ApiOkResponse({
+    type: DtGift,
+  })
+  @swagger.ApiNotFoundResponse({
+    type: errors.NotFoundException,
+  })
+  async deleteIcon(
+    @common.Param()
+    params: DtGiftWhereUniqueInput
+  ): Promise<DtGift> {
+    return this.service.deleteIcon({
+      where: params,
+    });
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
