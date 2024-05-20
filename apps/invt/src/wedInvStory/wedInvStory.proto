@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+                 package wedInvStory;
+service WedInvStoryService {
+ rpc createWedInvStory (WedInvStoryCreateInput) returns (WedInvStory) {}
+rpc wedInvStories (findManyParams) returns (stream WedInvStory) {}
+rpc wedInvStory (WedInvStoryWhereUniqueInput) returns (WedInvStory) {}
+rpc updateWedInvStory (WedInvStoryUpdateInput) returns (WedInvStory) {}
+rpc deleteWedInvStory (WedInvStoryWhereUniqueInput) returns (WedInvStory) {} 
+ }
+message WedInvStoryCreateInput {
+string createdAt = 1;
+string date = 2;
+string description = 3;
+string id = 4;
+string name = 5;
+string photo = 6;
+string updatedAt = 7;
+};
+message WedInvStory {
+string createdAt = 1;
+string date = 2;
+string description = 3;
+string id = 4;
+string name = 5;
+string photo = 6;
+string updatedAt = 7;
+};
+message WedInvStoryWhereUniqueInput {
+string createdAt = 1;
+string date = 2;
+string description = 3;
+string id = 4;
+string name = 5;
+string photo = 6;
+string updatedAt = 7;
+};
+message WedInvStoryUpdateInput {
+string createdAt = 1;
+string date = 2;
+string description = 3;
+string id = 4;
+string name = 5;
+string photo = 6;
+string updatedAt = 7;
+};
+message findManyParams {
+
+};

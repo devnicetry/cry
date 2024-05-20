@@ -46,6 +46,9 @@ export class WedInvWeddingControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: WedInvWeddingCreateInput,
+  })
   async createWedInvWedding(
     @common.Body() data: WedInvWeddingCreateInput
   ): Promise<WedInvWedding> {
@@ -168,6 +171,9 @@ export class WedInvWeddingControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: WedInvWeddingUpdateInput,
   })
   async updateWedInvWedding(
     @common.Param() params: WedInvWeddingWhereUniqueInput,

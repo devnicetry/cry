@@ -3,12 +3,12 @@ import { AuthModule } from "../auth/auth.module";
 import { DtPaymentMethodModuleBase } from "./base/dtPaymentMethod.module.base";
 import { DtPaymentMethodService } from "./dtPaymentMethod.service";
 import { DtPaymentMethodController } from "./dtPaymentMethod.controller";
-import { DtPaymentMethodResolver } from "./dtPaymentMethod.resolver";
+import { DtPaymentMethodGrpcController } from "./dtPaymentMethod.grpc.controller";
 
 @Module({
   imports: [DtPaymentMethodModuleBase, forwardRef(() => AuthModule)],
-  controllers: [DtPaymentMethodController],
-  providers: [DtPaymentMethodService, DtPaymentMethodResolver],
+  controllers: [DtPaymentMethodController, DtPaymentMethodGrpcController],
+  providers: [DtPaymentMethodService],
   exports: [DtPaymentMethodService],
 })
 export class DtPaymentMethodModule {}

@@ -3,12 +3,12 @@ import { AuthModule } from "../auth/auth.module";
 import { WedInvModuleBase } from "./base/wedInv.module.base";
 import { WedInvService } from "./wedInv.service";
 import { WedInvController } from "./wedInv.controller";
-import { WedInvResolver } from "./wedInv.resolver";
+import { WedInvGrpcController } from "./wedInv.grpc.controller";
 
 @Module({
   imports: [WedInvModuleBase, forwardRef(() => AuthModule)],
-  controllers: [WedInvController],
-  providers: [WedInvService, WedInvResolver],
+  controllers: [WedInvController, WedInvGrpcController],
+  providers: [WedInvService],
   exports: [WedInvService],
 })
 export class WedInvModule {}

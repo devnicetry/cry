@@ -46,6 +46,9 @@ export class WedInvGiftControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: WedInvGiftCreateInput,
+  })
   async createWedInvGift(
     @common.Body() data: WedInvGiftCreateInput
   ): Promise<WedInvGift> {
@@ -190,6 +193,9 @@ export class WedInvGiftControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: WedInvGiftUpdateInput,
   })
   async updateWedInvGift(
     @common.Param() params: WedInvGiftWhereUniqueInput,

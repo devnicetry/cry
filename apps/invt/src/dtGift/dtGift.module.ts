@@ -3,12 +3,12 @@ import { AuthModule } from "../auth/auth.module";
 import { DtGiftModuleBase } from "./base/dtGift.module.base";
 import { DtGiftService } from "./dtGift.service";
 import { DtGiftController } from "./dtGift.controller";
-import { DtGiftResolver } from "./dtGift.resolver";
+import { DtGiftGrpcController } from "./dtGift.grpc.controller";
 
 @Module({
   imports: [DtGiftModuleBase, forwardRef(() => AuthModule)],
-  controllers: [DtGiftController],
-  providers: [DtGiftService, DtGiftResolver],
+  controllers: [DtGiftController, DtGiftGrpcController],
+  providers: [DtGiftService],
   exports: [DtGiftService],
 })
 export class DtGiftModule {}

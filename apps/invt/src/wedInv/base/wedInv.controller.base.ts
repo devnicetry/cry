@@ -76,6 +76,9 @@ export class WedInvControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: WedInvCreateInput,
+  })
   async createWedInv(@common.Body() data: WedInvCreateInput): Promise<WedInv> {
     return await this.service.createWedInv({
       data: {
@@ -180,6 +183,9 @@ export class WedInvControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: WedInvUpdateInput,
   })
   async updateWedInv(
     @common.Param() params: WedInvWhereUniqueInput,

@@ -45,6 +45,9 @@ export class WedInvEventControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: WedInvEventCreateInput,
+  })
   async createWedInvEvent(
     @common.Body() data: WedInvEventCreateInput
   ): Promise<WedInvEvent> {
@@ -177,6 +180,9 @@ export class WedInvEventControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: WedInvEventUpdateInput,
   })
   async updateWedInvEvent(
     @common.Param() params: WedInvEventWhereUniqueInput,

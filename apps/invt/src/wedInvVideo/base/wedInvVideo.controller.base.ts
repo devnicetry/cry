@@ -46,6 +46,9 @@ export class WedInvVideoControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: WedInvVideoCreateInput,
+  })
   async createWedInvVideo(
     @common.Body() data: WedInvVideoCreateInput
   ): Promise<WedInvVideo> {
@@ -154,6 +157,9 @@ export class WedInvVideoControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: WedInvVideoUpdateInput,
   })
   async updateWedInvVideo(
     @common.Param() params: WedInvVideoWhereUniqueInput,

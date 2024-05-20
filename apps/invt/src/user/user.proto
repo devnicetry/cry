@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+                 package user;
+service UserService {
+ rpc createUser (UserCreateInput) returns (User) {}
+rpc users (findManyParams) returns (stream User) {}
+rpc user (UserWhereUniqueInput) returns (User) {}
+rpc updateUser (UserUpdateInput) returns (User) {}
+rpc deleteUser (UserWhereUniqueInput) returns (User) {}
+rpc findManyUser (UserWhereUniqueInput) returns (stream WedInvPayment) {}
+rpc updateUser (WedInvPaymentParams) returns (stream WedInvPayment) {}
+rpc connectUser (WedInvPaymentParams) returns (WedInvPayment) {}
+rpc disconnectUser (WedInvPaymentParams) returns (WedInvPayment) {}
+rpc findManyUser (UserWhereUniqueInput) returns (stream WedInv) {}
+rpc updateUser (WedInvParams) returns (stream WedInv) {}
+rpc connectUser (WedInvParams) returns (WedInv) {}
+rpc disconnectUser (WedInvParams) returns (WedInv) {} 
+ }
+message UserCreateInput {
+string createdAt = 1;
+string email = 2;
+string fullName = 3;
+string id = 4;
+string password = 5;
+repeated string roles = 6;
+repeated string status = 7;
+string updatedAt = 8;
+string username = 9;
+repeated WedInvPayment wedInvPayments = 10;
+repeated WedInv wedInvs = 11;
+};
+message User {
+string createdAt = 1;
+string email = 2;
+string fullName = 3;
+string id = 4;
+string password = 5;
+repeated string roles = 6;
+repeated string status = 7;
+string updatedAt = 8;
+string username = 9;
+repeated WedInvPayment wedInvPayments = 10;
+repeated WedInv wedInvs = 11;
+};
+message UserWhereUniqueInput {
+string createdAt = 1;
+string email = 2;
+string fullName = 3;
+string id = 4;
+string password = 5;
+repeated string roles = 6;
+repeated string status = 7;
+string updatedAt = 8;
+string username = 9;
+repeated WedInvPayment wedInvPayments = 10;
+repeated WedInv wedInvs = 11;
+};
+message UserUpdateInput {
+string createdAt = 1;
+string email = 2;
+string fullName = 3;
+string id = 4;
+string password = 5;
+repeated string roles = 6;
+repeated string status = 7;
+string updatedAt = 8;
+string username = 9;
+repeated WedInvPayment wedInvPayments = 10;
+repeated WedInv wedInvs = 11;
+};
+message findManyParams {
+
+};
+message WedInvPayment {
+string accountName = 1;
+string accountNo = 2;
+int32 amount = 3;
+string createdAt = 4;
+string evidence = 5;
+string id = 6;
+string noRef = 7;
+string updatedAt = 8;
+};
+message WedInvPaymentWhereUniqueInput {
+string accountName = 1;
+string accountNo = 2;
+int32 amount = 3;
+string createdAt = 4;
+string evidence = 5;
+string id = 6;
+string noRef = 7;
+string updatedAt = 8;
+};
+message WedInvPaymentParams {
+UserWhereUniqueInput userWhereUniqueInput = 1;
+WedInvPaymentWhereUniqueInput wedinvpaymentWhereUniqueInput = 2;
+};
+message WedInv {
+string createdAt = 1;
+string id = 2;
+repeated string status = 3;
+string updatedAt = 4;
+string url = 5;
+};
+message WedInvWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+repeated string status = 3;
+string updatedAt = 4;
+string url = 5;
+};
+message WedInvParams {
+UserWhereUniqueInput userWhereUniqueInput = 1;
+WedInvWhereUniqueInput wedinvWhereUniqueInput = 2;
+};
