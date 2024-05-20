@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+                 package wedInvPreset;
+service WedInvPresetService {
+ rpc createWedInvPreset (WedInvPresetCreateInput) returns (WedInvPreset) {}
+rpc wedInvPresets (findManyParams) returns (stream WedInvPreset) {}
+rpc wedInvPreset (WedInvPresetWhereUniqueInput) returns (WedInvPreset) {}
+rpc updateWedInvPreset (WedInvPresetUpdateInput) returns (WedInvPreset) {}
+rpc deleteWedInvPreset (WedInvPresetWhereUniqueInput) returns (WedInvPreset) {} 
+ }
+message WedInvPresetCreateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message WedInvPreset {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message WedInvPresetWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message WedInvPresetUpdateInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message findManyParams {
+
+};

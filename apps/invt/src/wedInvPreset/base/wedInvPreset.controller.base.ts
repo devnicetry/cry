@@ -45,6 +45,9 @@ export class WedInvPresetControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: WedInvPresetCreateInput,
+  })
   async createWedInvPreset(
     @common.Body() data: WedInvPresetCreateInput
   ): Promise<WedInvPreset> {
@@ -150,6 +153,9 @@ export class WedInvPresetControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: WedInvPresetUpdateInput,
   })
   async updateWedInvPreset(
     @common.Param() params: WedInvPresetWhereUniqueInput,

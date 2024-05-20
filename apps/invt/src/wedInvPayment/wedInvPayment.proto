@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+                 package wedInvPayment;
+service WedInvPaymentService {
+ rpc createWedInvPayment (WedInvPaymentCreateInput) returns (WedInvPayment) {}
+rpc wedInvPayments (findManyParams) returns (stream WedInvPayment) {}
+rpc wedInvPayment (WedInvPaymentWhereUniqueInput) returns (WedInvPayment) {}
+rpc updateWedInvPayment (WedInvPaymentUpdateInput) returns (WedInvPayment) {}
+rpc deleteWedInvPayment (WedInvPaymentWhereUniqueInput) returns (WedInvPayment) {} 
+ }
+message WedInvPaymentCreateInput {
+string accountName = 1;
+string accountNo = 2;
+int32 amount = 3;
+string createdAt = 4;
+string evidence = 5;
+string id = 6;
+string noRef = 7;
+string updatedAt = 8;
+};
+message WedInvPayment {
+string accountName = 1;
+string accountNo = 2;
+int32 amount = 3;
+string createdAt = 4;
+string evidence = 5;
+string id = 6;
+string noRef = 7;
+string updatedAt = 8;
+};
+message WedInvPaymentWhereUniqueInput {
+string accountName = 1;
+string accountNo = 2;
+int32 amount = 3;
+string createdAt = 4;
+string evidence = 5;
+string id = 6;
+string noRef = 7;
+string updatedAt = 8;
+};
+message WedInvPaymentUpdateInput {
+string accountName = 1;
+string accountNo = 2;
+int32 amount = 3;
+string createdAt = 4;
+string evidence = 5;
+string id = 6;
+string noRef = 7;
+string updatedAt = 8;
+};
+message findManyParams {
+
+};

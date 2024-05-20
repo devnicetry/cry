@@ -1,0 +1,83 @@
+syntax = "proto3";
+
+                 package wedInvShare;
+service WedInvShareService {
+ rpc createWedInvShare (WedInvShareCreateInput) returns (WedInvShare) {}
+rpc wedInvShares (findManyParams) returns (stream WedInvShare) {}
+rpc wedInvShare (WedInvShareWhereUniqueInput) returns (WedInvShare) {}
+rpc updateWedInvShare (WedInvShareUpdateInput) returns (WedInvShare) {}
+rpc deleteWedInvShare (WedInvShareWhereUniqueInput) returns (WedInvShare) {}
+rpc findManyWedInvShare (WedInvShareWhereUniqueInput) returns (stream WedInvComment) {}
+rpc updateWedInvShare (WedInvCommentParams) returns (stream WedInvComment) {}
+rpc connectWedInvShare (WedInvCommentParams) returns (WedInvComment) {}
+rpc disconnectWedInvShare (WedInvCommentParams) returns (WedInvComment) {} 
+ }
+message WedInvShareCreateInput {
+string createdAt = 1;
+int32 frequency = 2;
+string id = 3;
+string identity = 4;
+string link = 5;
+string name = 6;
+bool open = 7;
+string updatedAt = 8;
+repeated WedInvComment wedInvComments = 9;
+};
+message WedInvShare {
+string createdAt = 1;
+int32 frequency = 2;
+string id = 3;
+string identity = 4;
+string link = 5;
+string name = 6;
+bool open = 7;
+string updatedAt = 8;
+repeated WedInvComment wedInvComments = 9;
+};
+message WedInvShareWhereUniqueInput {
+string createdAt = 1;
+int32 frequency = 2;
+string id = 3;
+string identity = 4;
+string link = 5;
+string name = 6;
+bool open = 7;
+string updatedAt = 8;
+repeated WedInvComment wedInvComments = 9;
+};
+message WedInvShareUpdateInput {
+string createdAt = 1;
+int32 frequency = 2;
+string id = 3;
+string identity = 4;
+string link = 5;
+string name = 6;
+bool open = 7;
+string updatedAt = 8;
+repeated WedInvComment wedInvComments = 9;
+};
+message findManyParams {
+
+};
+message WedInvComment {
+string comment = 1;
+string confirmation = 2;
+string createdAt = 3;
+string id = 4;
+string moment = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message WedInvCommentWhereUniqueInput {
+string comment = 1;
+string confirmation = 2;
+string createdAt = 3;
+string id = 4;
+string moment = 5;
+string name = 6;
+string updatedAt = 7;
+};
+message WedInvCommentParams {
+WedInvShareWhereUniqueInput wedInvShareWhereUniqueInput = 1;
+WedInvCommentWhereUniqueInput wedinvcommentWhereUniqueInput = 2;
+};

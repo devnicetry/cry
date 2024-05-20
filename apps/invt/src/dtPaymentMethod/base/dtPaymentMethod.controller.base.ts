@@ -49,6 +49,9 @@ export class DtPaymentMethodControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: DtPaymentMethodCreateInput,
+  })
   async createDtPaymentMethod(
     @common.Body() data: DtPaymentMethodCreateInput
   ): Promise<DtPaymentMethod> {
@@ -145,6 +148,9 @@ export class DtPaymentMethodControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: DtPaymentMethodUpdateInput,
   })
   async updateDtPaymentMethod(
     @common.Param() params: DtPaymentMethodWhereUniqueInput,

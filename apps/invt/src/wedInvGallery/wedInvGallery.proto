@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package wedInvGallery;
+service WedInvGalleryService {
+ rpc createWedInvGallery (WedInvGalleryCreateInput) returns (WedInvGallery) {}
+rpc wedInvGalleries (findManyParams) returns (stream WedInvGallery) {}
+rpc wedInvGallery (WedInvGalleryWhereUniqueInput) returns (WedInvGallery) {}
+rpc updateWedInvGallery (WedInvGalleryUpdateInput) returns (WedInvGallery) {}
+rpc deleteWedInvGallery (WedInvGalleryWhereUniqueInput) returns (WedInvGallery) {} 
+ }
+message WedInvGalleryCreateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string photo = 4;
+string updatedAt = 5;
+};
+message WedInvGallery {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string photo = 4;
+string updatedAt = 5;
+};
+message WedInvGalleryWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string photo = 4;
+string updatedAt = 5;
+};
+message WedInvGalleryUpdateInput {
+string createdAt = 1;
+string id = 2;
+string name = 3;
+string photo = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};

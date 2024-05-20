@@ -46,6 +46,9 @@ export class WedInvGalleryControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: WedInvGalleryCreateInput,
+  })
   async createWedInvGallery(
     @common.Body() data: WedInvGalleryCreateInput
   ): Promise<WedInvGallery> {
@@ -159,6 +162,9 @@ export class WedInvGalleryControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: WedInvGalleryUpdateInput,
   })
   async updateWedInvGallery(
     @common.Param() params: WedInvGalleryWhereUniqueInput,

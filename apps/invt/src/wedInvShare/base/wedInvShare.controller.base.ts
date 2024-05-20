@@ -48,6 +48,9 @@ export class WedInvShareControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: WedInvShareCreateInput,
+  })
   async createWedInvShare(
     @common.Body() data: WedInvShareCreateInput
   ): Promise<WedInvShare> {
@@ -168,6 +171,9 @@ export class WedInvShareControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: WedInvShareUpdateInput,
   })
   async updateWedInvShare(
     @common.Param() params: WedInvShareWhereUniqueInput,

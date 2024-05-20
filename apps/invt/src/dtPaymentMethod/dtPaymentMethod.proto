@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+                 package dtPaymentMethod;
+service DtPaymentMethodService {
+ rpc createDtPaymentMethod (DtPaymentMethodCreateInput) returns (DtPaymentMethod) {}
+rpc dtPaymentMethods (findManyParams) returns (stream DtPaymentMethod) {}
+rpc dtPaymentMethod (DtPaymentMethodWhereUniqueInput) returns (DtPaymentMethod) {}
+rpc updateDtPaymentMethod (DtPaymentMethodUpdateInput) returns (DtPaymentMethod) {}
+rpc deleteDtPaymentMethod (DtPaymentMethodWhereUniqueInput) returns (DtPaymentMethod) {}
+rpc findManyDtPaymentMethod (DtPaymentMethodWhereUniqueInput) returns (stream WedInvPayment) {}
+rpc updateDtPaymentMethod (WedInvPaymentParams) returns (stream WedInvPayment) {}
+rpc connectDtPaymentMethod (WedInvPaymentParams) returns (WedInvPayment) {}
+rpc disconnectDtPaymentMethod (WedInvPaymentParams) returns (WedInvPayment) {} 
+ }
+message DtPaymentMethodCreateInput {
+string account = 1;
+string accountName = 2;
+string accountNo = 3;
+repeated string accountType = 4;
+string createdAt = 5;
+string icon = 6;
+string id = 7;
+string updatedAt = 8;
+repeated WedInvPayment wedInvPayments = 9;
+};
+message DtPaymentMethod {
+string account = 1;
+string accountName = 2;
+string accountNo = 3;
+repeated string accountType = 4;
+string createdAt = 5;
+string icon = 6;
+string id = 7;
+string updatedAt = 8;
+repeated WedInvPayment wedInvPayments = 9;
+};
+message DtPaymentMethodWhereUniqueInput {
+string account = 1;
+string accountName = 2;
+string accountNo = 3;
+repeated string accountType = 4;
+string createdAt = 5;
+string icon = 6;
+string id = 7;
+string updatedAt = 8;
+repeated WedInvPayment wedInvPayments = 9;
+};
+message DtPaymentMethodUpdateInput {
+string account = 1;
+string accountName = 2;
+string accountNo = 3;
+repeated string accountType = 4;
+string createdAt = 5;
+string icon = 6;
+string id = 7;
+string updatedAt = 8;
+repeated WedInvPayment wedInvPayments = 9;
+};
+message findManyParams {
+
+};
+message WedInvPayment {
+string accountName = 1;
+string accountNo = 2;
+int32 amount = 3;
+string createdAt = 4;
+string evidence = 5;
+string id = 6;
+string noRef = 7;
+string updatedAt = 8;
+};
+message WedInvPaymentWhereUniqueInput {
+string accountName = 1;
+string accountNo = 2;
+int32 amount = 3;
+string createdAt = 4;
+string evidence = 5;
+string id = 6;
+string noRef = 7;
+string updatedAt = 8;
+};
+message WedInvPaymentParams {
+DtPaymentMethodWhereUniqueInput dtPaymentMethodWhereUniqueInput = 1;
+WedInvPaymentWhereUniqueInput wedinvpaymentWhereUniqueInput = 2;
+};

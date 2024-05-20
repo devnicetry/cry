@@ -46,6 +46,9 @@ export class WedInvPaymentControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: WedInvPaymentCreateInput,
+  })
   async createWedInvPayment(
     @common.Body() data: WedInvPaymentCreateInput
   ): Promise<WedInvPayment> {
@@ -219,6 +222,9 @@ export class WedInvPaymentControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: WedInvPaymentUpdateInput,
   })
   async updateWedInvPayment(
     @common.Param() params: WedInvPaymentWhereUniqueInput,

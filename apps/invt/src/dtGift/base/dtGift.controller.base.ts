@@ -49,6 +49,9 @@ export class DtGiftControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: DtGiftCreateInput,
+  })
   async createDtGift(@common.Body() data: DtGiftCreateInput): Promise<DtGift> {
     return await this.service.createDtGift({
       data: data,
@@ -135,6 +138,9 @@ export class DtGiftControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: DtGiftUpdateInput,
   })
   async updateDtGift(
     @common.Param() params: DtGiftWhereUniqueInput,
