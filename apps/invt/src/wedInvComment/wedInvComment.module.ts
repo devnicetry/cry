@@ -3,11 +3,10 @@ import { AuthModule } from "../auth/auth.module";
 import { WedInvCommentModuleBase } from "./base/wedInvComment.module.base";
 import { WedInvCommentService } from "./wedInvComment.service";
 import { WedInvCommentController } from "./wedInvComment.controller";
-import { WedInvCommentGrpcController } from "./wedInvComment.grpc.controller";
 
 @Module({
   imports: [WedInvCommentModuleBase, forwardRef(() => AuthModule)],
-  controllers: [WedInvCommentController, WedInvCommentGrpcController],
+  controllers: [WedInvCommentController],
   providers: [WedInvCommentService],
   exports: [WedInvCommentService],
 })
